@@ -1,1 +1,10 @@
 c:\users\user\documents\visual studio 2013\Projects\catWar\catWar\bin\Debug\catWar.exe.config
+c:\users\user\documents\visual studio 2013\Projects\catWar\catWar\bin\Debug\catWar.exe
+c:\users\user\documents\visual studio 2013\Projects\catWar\catWar\bin\Debug\catWar.pdb
+c:\users\user\documents\visual studio 2013\Projects\catWar\catWar\obj\Debug\catWar.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2013\Projects\catWar\catWar\obj\Debug\catWar.Form1.resources
+c:\users\user\documents\visual studio 2013\Projects\catWar\catWar\obj\Debug\catWar.Properties.Resources.resources
+c:\users\user\documents\visual studio 2013\Projects\catWar\catWar\obj\Debug\catWar.csproj.GenerateResource.Cache
+c:\users\user\documents\visual studio 2013\Projects\catWar\catWar\obj\Debug\catWar.exe
+c:\users\user\documents\visual studio 2013\Projects\catWar\catWar\obj\Debug\catWar.pdb
+c:\users\user\documents\visual studio 2013\Projects\catWar\catWar\obj\Debug\catWar.Form2.resources
