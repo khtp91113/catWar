@@ -8,3 +8,4 @@ c:\users\user\documents\visual studio 2013\Projects\catWar\catWar\obj\Debug\catW
 c:\users\user\documents\visual studio 2013\Projects\catWar\catWar\obj\Debug\catWar.exe
 c:\users\user\documents\visual studio 2013\Projects\catWar\catWar\obj\Debug\catWar.pdb
 c:\users\user\documents\visual studio 2013\Projects\catWar\catWar\obj\Debug\catWar.Form2.resources
+c:\users\user\documents\visual studio 2013\Projects\catWar\catWar\obj\Debug\catWar.Form3.resources

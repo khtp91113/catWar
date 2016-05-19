@@ -22,15 +22,20 @@ namespace catWar
         private void Form1_Load(object sender, EventArgs e)
         {
             label1.Hide();
-            comboBox1.Hide();
             button4.Hide();
+            String[] difficulty = new String[] { "簡單", "普通", "困難", "地獄" };
+            comboBox1.Items.AddRange(difficulty);
+            comboBox1.Hide();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            label1.Show();
-            label1.Text = "普通模式\n說明: ...";
-            this.Close();
+            label1.Hide();
+            button4.Hide();
+            comboBox1.Hide();
+            DialogResult dialog = MessageBox.Show("確定要結束遊戲?", "離開遊戲", MessageBoxButtons.OKCancel);
+            if (dialog == DialogResult.OK)
+                this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -38,8 +43,7 @@ namespace catWar
             label1.Show();
             button4.Show();
             label1.Text = "普通模式\n說明: ...\n請選擇難度";
-            String[] difficulty = new String[] {"簡單","普通","困難","地獄"};
-            comboBox1.Items.AddRange(difficulty);
+            comboBox1.SelectedIndex = 0;
             comboBox1.Show();
         }
 

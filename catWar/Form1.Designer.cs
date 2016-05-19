@@ -107,6 +107,7 @@
             this.MaximumSize = new System.Drawing.Size(1200, 700);
             this.MinimumSize = new System.Drawing.Size(1200, 700);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "選單頁面";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
