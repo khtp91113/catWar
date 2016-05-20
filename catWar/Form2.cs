@@ -12,27 +12,6 @@ namespace catWar
 {
     public partial class Form2 : Form
     {
-        public static int questionLevel;
-
-        public static bool form3_result;
-
-        public Form2()
-        {
-            InitializeComponent();
-        }
-
-        private void Form2_Load(object sender, EventArgs e)
-        {
-            button2.Click += button1_Click;
-            button3.Click += button1_Click;
-            button4.Click += button1_Click;
-            button5.Click += button1_Click;
-        }
-
-        private void Form2_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Form1.f1.Show();
-        }
 
         public class castle
         {
@@ -74,59 +53,54 @@ namespace catWar
                 move();
             }
 
+            public soldier() 
+            {
+                //init(arg_side, level);
+            }
+
             public void init(int arg_side, int level)
             {
-                tmr_atk.Interval = atk_speed;
-                tmr_move.Interval = 1000;
                 if (arg_side == 0)
                 {
                     side = 0;
+                    position=0;
+                    order=our_num;
                     switch (level)
                     {
                         case 1:
-                            /*blood=;
-                            position=;
-                            order=;
-                            atk_ab=;
-                            atk_speed=;
-                            dfn_ab=;
-                            move_ab=;*/
+                            blood=250;
+                            atk_ab=30;
+                            atk_speed=500;
+                            dfn_ab=10;
+                            move_ab=2;
                             break;
                         case 2:
-                            /*blood=;
-                            position=;
-                            order=;
-                            atk_ab=;
-                            atk_speed=;
-                            dfn_ab=;
-                            move_ab=;*/
+                            blood=200;
+                            atk_ab=50;
+                            atk_speed=500;
+                            dfn_ab=5;
+                            move_ab=3;
                             break;
                         case 3:
-                            /*blood=;
-                            position=;
-                            order=;
-                            atk_ab=;
-                            atk_speed=;
-                            dfn_ab=;
-                            move_ab=;*/
+                            blood=300;
+                            atk_ab=120;
+                            atk_speed=1000;
+                            dfn_ab=15;
+                            move_ab=2;
                             break;
                         case 4:
-                            /*blood=;
-                            position=;
-                            order=;
-                            atk_ab=;
-                            atk_speed=;
-                            dfn_ab=;
-                            move_ab=;*/
+                            blood=250;
+                            atk_ab=50;
+                            atk_speed=250;
+                            dfn_ab=10;
+                            move_ab=5;
                             break;
                         case 5:
-                            /*blood=;
-                            position=;
-                            order=;
-                            atk_ab=;
-                            atk_speed=;
-                            dfn_ab=;
-                            move_ab=;*/
+                            blood=1000;
+                            atk_ab=200;
+                            atk_speed=750;
+                            dfn_ab=25;
+                            move_ab=1;
                             break;
                     }
                 }
@@ -136,52 +110,46 @@ namespace catWar
                     switch (level)
                     {
                         case 1:
-                            /*blood=;
-                            position=;
-                            order=;
-                            atk_ab=;
-                            atk_speed=;
-                            dfn_ab=;
-                            move_ab=;*/
+                            blood=250;
+                            atk_ab=30;
+                            atk_speed=500;
+                            dfn_ab=10;
+                            move_ab=2;
                             break;
                         case 2:
-                            /*blood=;
-                            position=;
-                            order=;
-                            atk_ab=;
-                            atk_speed=;
-                            dfn_ab=;
-                            move_ab=;*/
+                            blood=200;
+                            atk_ab=50;
+                            atk_speed=500;
+                            dfn_ab=5;
+                            move_ab=3;
                             break;
                         case 3:
-                            /*blood=;
-                            position=;
-                            order=;
-                            atk_ab=;
-                            atk_speed=;
-                            dfn_ab=;
-                            move_ab=;*/
+                            blood=300;
+                            atk_ab=120;
+                            atk_speed=1000;
+                            dfn_ab=15;
+                            move_ab=2;
                             break;
                         case 4:
-                            /*blood=;
-                            position=;
-                            order=;
-                            atk_ab=;
-                            atk_speed=;
-                            dfn_ab=;
-                            move_ab=;*/
+                            blood=250;
+                            atk_ab=50;
+                            atk_speed=250;
+                            dfn_ab=10;
+                            move_ab=5;
                             break;
                         case 5:
-                            /*blood=;
-                            position=;
-                            order=;
-                            atk_ab=;
-                            atk_speed=;
-                            dfn_ab=;
-                            move_ab=;*/
+                            blood=1000;
+                            atk_ab=200;
+                            atk_speed=750;
+                            dfn_ab=25;
+                            move_ab=1;
                             break;
                     }
                 }
+                tmr_atk.Interval = atk_speed;
+                tmr_move.Interval = 1000;
+                tmr_atk.Enabled = true;
+                tmr_move.Enabled = true;
             }
 
             public void move()
@@ -202,15 +170,57 @@ namespace catWar
             public bool is_dead()
             {
                 if (blood <= 0)
+                {
+                    tmr_atk.Enabled = false;
+                    tmr_move.Enabled = false;
                     return true;
+                }
                 return false;
             }
         }
 
+        public static int questionLevel;
+
+        public static bool form3_result;
+
+        public static int size = 1000;
+
+        public static int our_num = 0, enemy_num = 0;
+
+        castle our_castle = new castle();
+        castle enemy_castle = new castle();
+        soldier[] our_soldier = new soldier[size];
+        soldier[] enemy_soldier = new soldier[size];
+
+        public Form2()
+        {
+            InitializeComponent();
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            button2.Click += button1_Click;
+            button3.Click += button1_Click;
+            button4.Click += button1_Click;
+            button5.Click += button1_Click;
+        }
+
+        private void Form2_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form1.f1.Show();
+        }
+
         public void set_form3_result(bool b) 
         {
-            form3_result = b;
+            //form3_result = b;
+            form3_result = true;
+
             label1.Text = form3_result.ToString();
+            if (form3_result == true)
+            {
+                our_soldier[our_num] = new soldier();
+                our_soldier[our_num++].init(0,questionLevel);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
