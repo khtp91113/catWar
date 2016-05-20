@@ -42,7 +42,8 @@ namespace catWar
             public static int dfn_ab;      //防禦力
             public static float move_ab;   //移動力(每秒走多遠)
             public static Timer tmr_move = new Timer();
-
+            public static Label label0 = new Label();
+            
             public void tmr_atk_Tick(object sender, EventArgs e)
             {
                 attack();
@@ -58,7 +59,7 @@ namespace catWar
                 //init(arg_side, level);
             }
 
-            public void init(int arg_side, int level)
+            public void init(int arg_side, int level, Form f)
             {
                 if (arg_side == 0)
                 {
@@ -146,12 +147,17 @@ namespace catWar
                             break;
                     }
                 }
+                label0.Location = new Point(200 + (int)position, 300);
+                label0.Text = level.ToString();
+                f.Controls.Add(label0);
+                
+
                 tmr_atk.Interval = atk_speed;
                 tmr_move.Interval = 1000;
                 tmr_atk.Enabled = true;
                 tmr_move.Enabled = true;
             }
-
+            
             public void move()
             {
                 position += move_ab;
@@ -183,7 +189,7 @@ namespace catWar
 
         public static bool form3_result;
 
-        public static int size = 1000;
+        public static int size = 100000;
 
         public static int our_num = 0, enemy_num = 0;
 
@@ -219,7 +225,7 @@ namespace catWar
             if (form3_result == true)
             {
                 our_soldier[our_num] = new soldier();
-                our_soldier[our_num++].init(0,questionLevel);
+                our_soldier[our_num++].init(0,questionLevel, this);
             }
         }
 
