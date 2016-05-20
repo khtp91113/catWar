@@ -14,11 +14,13 @@ namespace catWar
 {
     public partial class Form3 : Form
     {
+        Form2 Form2_Ref = null;
         string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\question.mdf;Integrated Security=True";
         public static bool correct;
-        public Form3()
+        public Form3(Form2 form2_t)
         {
             InitializeComponent();
+            Form2_Ref = form2_t;
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -110,6 +112,7 @@ namespace catWar
                 correct = false;
                 
             }
+            Form2_Ref.set_form3_result(correct);
             this.Close();
         }
     }
