@@ -15,7 +15,7 @@ namespace catWar
 
         public class castle
         {
-            public static int blood;  //血量
+            private static int blood;  //血量
 
             public void attacked(int x) //被攻擊
             {
@@ -32,35 +32,27 @@ namespace catWar
 
         public class soldier
         {
-            public static int side;        //0:我方 1:敵方
-            public static int blood;       //血量
-            public static float position;    //位置
-            public static int order;       //順序
-            public static int atk_ab;      //攻擊力
-            public static int atk_speed; //攻擊間隔(毫秒)
-            public static Timer tmr_atk = new Timer();
-            public static int dfn_ab;      //防禦力
-            public static float move_ab;   //移動力(每秒走多遠)
-            public static Timer tmr_move = new Timer();
-            public static Label label0 = new Label();
-            
-            public void tmr_atk_Tick(object sender, EventArgs e)
-            {
-                attack();
-            }
+            private static int clk;
+            private static int side;        //0:我方 1:敵方
+            private static int blood;       //血量
+            private static int position;    //位置
+            private static int order;       //順序
+            private static int atk_ab;      //攻擊力
+            private static int atk_speed; //攻擊間隔(*100毫秒)
+            private static int dfn_ab;      //防禦力
+            private static int move_ab;   //移動力
+            private static Label label0;
 
-            public void tmr_move_Tick(object sender, EventArgs e)
+            public soldier(int arg_side, int level, Form f) 
             {
-                move();
-            }
-
-            public soldier() 
-            {
-                //init(arg_side, level);
+                init(arg_side,level,f);
             }
 
             public void init(int arg_side, int level, Form f)
             {
+                label0 = new Label();
+                
+                clk = 0;
                 if (arg_side == 0)
                 {
                     side = 0;
@@ -115,52 +107,65 @@ namespace catWar
                             atk_ab=30;
                             atk_speed=500;
                             dfn_ab=10;
-                            move_ab=2;
+                            move_ab= -2;
                             break;
                         case 2:
                             blood=200;
                             atk_ab=50;
                             atk_speed=500;
                             dfn_ab=5;
-                            move_ab=3;
+                            move_ab= -3;
                             break;
                         case 3:
                             blood=300;
                             atk_ab=120;
                             atk_speed=1000;
                             dfn_ab=15;
-                            move_ab=2;
+                            move_ab= -2;
                             break;
                         case 4:
                             blood=250;
                             atk_ab=50;
                             atk_speed=250;
                             dfn_ab=10;
-                            move_ab=5;
+                            move_ab= -5;
                             break;
                         case 5:
                             blood=1000;
                             atk_ab=200;
                             atk_speed=750;
                             dfn_ab=25;
-                            move_ab=1;
+                            move_ab= -1;
                             break;
                     }
                 }
-                label0.Location = new Point(200 + (int)position, 300);
+                label0.Location = new Point(200 + position, 300);
                 label0.Text = level.ToString();
                 f.Controls.Add(label0);
                 
-
-                tmr_atk.Interval = atk_speed;
-                tmr_move.Interval = 1000;
-                tmr_atk.Enabled = true;
-                tmr_move.Enabled = true;
             }
-            
+
+            public void clock()
+            {
+                if (clk >= 2147483646 || clk < 0)
+                    clk = 0;
+                clk++;
+                
+                if (clk % 10 == 0)
+                    move();
+
+            }
+
+            public string get_position()
+            {
+                return clk.ToString();
+            }
+
             public void move()
             {
                 position += move_ab;
+                label0.BringToFront();
+                label0.Left += move_ab;
             }
 
             public void attack()
@@ -177,8 +182,6 @@ namespace catWar
             {
                 if (blood <= 0)
                 {
-                    tmr_atk.Enabled = false;
-                    tmr_move.Enabled = false;
                     return true;
                 }
                 return false;
@@ -209,6 +212,7 @@ namespace catWar
             button3.Click += button1_Click;
             button4.Click += button1_Click;
             button5.Click += button1_Click;
+            timer1.Enabled = true;
         }
 
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
@@ -224,8 +228,8 @@ namespace catWar
             label1.Text = form3_result.ToString();
             if (form3_result == true)
             {
-                our_soldier[our_num] = new soldier();
-                our_soldier[our_num++].init(0,questionLevel, this);
+                our_soldier[our_num] = new soldier(0, questionLevel, this);
+                our_num++;
             }
         }
 
@@ -244,6 +248,25 @@ namespace catWar
                 questionLevel = 5;
             Form3 f3 = new Form3(this);
             f3.ShowDialog();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < our_num; i++)
+            {
+                label1.Text += i.ToString();
+                label1.Text += ":";
+                string s = our_soldier[i].get_position();
+                label1.Text += s;
+                label1.Text += "   ";
+
+
+                our_soldier[i].clock();
+            }
+            for (int i = 0; i < enemy_num; i++)
+            {
+                enemy_soldier[i].clock();
+            }
         }
     }
 }
