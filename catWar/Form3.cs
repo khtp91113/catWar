@@ -14,11 +14,15 @@ namespace catWar
 {
     public partial class Form3 : Form
     {
+        Form2 Form2_Ref = null;
         string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\question.mdf;Integrated Security=True";
         public static bool correct;
-        public Form3()
+        private static int ans;
+
+        public Form3(Form2 form2_t)
         {
             InitializeComponent();
+            Form2_Ref = form2_t;
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -79,6 +83,7 @@ namespace catWar
             button2.Text = "B." + myDataReader["option2"].ToString();
             button3.Text = "C." + myDataReader["option3"].ToString();
             button4.Text = "D." + myDataReader["option4"].ToString();
+            ans = int.Parse(myDataReader["ans"].ToString());
             button2.Click += button1_Click;
             button3.Click += button1_Click;
             button4.Click += button1_Click;
@@ -87,7 +92,6 @@ namespace catWar
         private void button1_Click(object sender, EventArgs e)
         {
             Button press = (Button)sender;
-            int ans = 0;//ans read from file
             
             if(press.Equals(button1) && ans == 1)
             {
@@ -108,8 +112,8 @@ namespace catWar
             else//wrong
             {
                 correct = false;
-                
             }
+            Form2_Ref.set_form3_result(correct);
             this.Close();
         }
     }
