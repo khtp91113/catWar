@@ -15,7 +15,7 @@ namespace catWar
 
         public class castle
         {
-            private static int blood;  //血量
+            private int blood;  //血量
 
             public void attacked(int x) //被攻擊
             {
@@ -32,16 +32,23 @@ namespace catWar
 
         public class soldier
         {
-            private static int clk;
-            private static int side;        //0:我方 1:敵方
-            private static int blood;       //血量
-            private static int position;    //位置
-            private static int order;       //順序
-            private static int atk_ab;      //攻擊力
-            private static int atk_speed; //攻擊間隔(*100毫秒)
-            private static int dfn_ab;      //防禦力
-            private static int move_ab;   //移動力
-            private static Label label0;
+            private static int start_point=200;
+            private static int end_point=1000;
+            private static int y_point = 300;
+            private static int our_front=0;
+            private static int enemy_front=100;
+            
+            private int clk;
+            private int side;        //0:我方 1:敵方
+            private int blood;       //血量
+            private int position;    //位置
+            private int order;       //順序
+            private int atk_ab;      //攻擊力
+            private int atk_speed; //攻擊間隔
+            private bool atk_mode=false;
+            private int dfn_ab;      //防禦力
+            private int move_ab;   //移動力
+            private Label label0;
 
             public soldier(int arg_side, int level, Form f) 
             {
@@ -51,13 +58,14 @@ namespace catWar
             public void init(int arg_side, int level, Form f)
             {
                 label0 = new Label();
-                
                 clk = 0;
                 if (arg_side == 0)
                 {
                     side = 0;
                     position=0;
-                    order=our_num;
+                    order = our_num;
+                    label0.Text = level.ToString();
+                    label0.Location = new Point(start_point + (end_point - start_point) / 100 * position, 300);
                     switch (level)
                     {
                         case 1:
@@ -100,6 +108,10 @@ namespace catWar
                 else if (arg_side == 1)
                 {
                     side = 1;
+                    position = 100;
+                    order = enemy_num;
+                    label0.Text = "x";
+                    label0.Location = new Point(start_point + (end_point - start_point) / 100 * position, 300);
                     switch (level)
                     {
                         case 1:
@@ -139,8 +151,6 @@ namespace catWar
                             break;
                     }
                 }
-                label0.Location = new Point(200 + position, 300);
-                label0.Text = level.ToString();
                 f.Controls.Add(label0);
                 
             }
@@ -150,27 +160,66 @@ namespace catWar
                 if (clk >= 2147483646 || clk < 0)
                     clk = 0;
                 clk++;
-                
+                if (atk_mode = true)
+                    attack();
                 if (clk % 10 == 0)
                     move();
 
             }
 
-            public string get_position()
+            public int get_position()
             {
-                return clk.ToString();
+                return position;
+            }
+
+            public int get_front(int side)
+            {
+                return (side==0)?our_front:enemy_front;
+            }
+
+            public void set_front(int side, int value)
+            {
+                if (side == 0)
+                    our_front = value;
+                else if (side == 1)
+                    enemy_front = value;
             }
 
             public void move()
             {
-                position += move_ab;
                 label0.BringToFront();
-                label0.Left += move_ab;
+                position += move_ab;
+                if (side == 0) 
+                {
+                    if (position >= enemy_front)
+                    {
+                        position = enemy_front - 1;
+                        atk_mode = true;
+                    }
+                    else if (position >= 100)
+                    {
+                        position = 99;
+                        atk_mode = true;
+                    }
+                }
+                else if (side == 1)
+                {
+                    if (position <= our_front)
+                    {
+                        position = our_front+1;
+                        atk_mode = true;
+                    }
+                    else if (position <=0)
+                    {
+                        position = 1;    
+                        atk_mode = true;
+                    }            
+                }
+                label0.Location = new Point(start_point + (end_point - start_point) / 100 * position, 300);
             }
 
             public void attack()
             {
-                // .attacked(atk_ab);
             }
 
             public void attacked(int x)
@@ -233,6 +282,23 @@ namespace catWar
             }
         }
 
+        public void set_front()
+        {
+            int temp;
+            for (int i = 0; i < our_num; i++)
+            {
+                temp=our_soldier[i].get_position();
+                if (temp > our_soldier[i].get_front(0) && temp < 100)
+                    our_soldier[i].set_front(0, temp);
+            }
+            for (int i = 0; i < enemy_num; i++)
+            {
+                temp = enemy_soldier[i].get_position();
+                if (temp < enemy_soldier[i].get_front(1) && temp >0)
+                    enemy_soldier[i].set_front(1, temp);
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             Button press = (Button)sender;
@@ -244,8 +310,14 @@ namespace catWar
                 questionLevel = 3;
             else if (press.Equals(button4))
                 questionLevel = 4;
-            else
-                questionLevel = 5;
+            else//測試派出敵人用
+            {
+                enemy_soldier[enemy_num] = new soldier(1, 4, this);
+                enemy_num++;
+                return;
+            }
+            //else
+            //    questionLevel = 5;
             Form3 f3 = new Form3(this);
             f3.ShowDialog();
         }
@@ -254,18 +326,13 @@ namespace catWar
         {
             for (int i = 0; i < our_num; i++)
             {
-                label1.Text += i.ToString();
-                label1.Text += ":";
-                string s = our_soldier[i].get_position();
-                label1.Text += s;
-                label1.Text += "   ";
-
-
                 our_soldier[i].clock();
+                set_front();
             }
             for (int i = 0; i < enemy_num; i++)
             {
                 enemy_soldier[i].clock();
+                set_front();
             }
         }
     }
