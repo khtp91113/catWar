@@ -32,3 +32,4 @@ C:\Users\Wang\Desktop\視窗project\catWar\catWar\obj\Debug\catWar.Form2.resourc
 C:\Users\Wang\Desktop\視窗project\catWar\catWar\obj\Debug\catWar.Form3.resources
 C:\Users\Wang\Desktop\視窗project\catWar\catWar\obj\Debug\catWar.Properties.Resources.resources
 C:\Users\Wang\Desktop\視窗project\catWar\catWar\obj\Debug\catWar.csproj.GenerateResource.Cache
+C:\Users\user\Documents\Visual Studio 2013\Projects\catWar\catWar\obj\Debug\catWar.Resource1.resources

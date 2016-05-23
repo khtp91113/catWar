@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace catWar
 {
     public partial class Form2 : Form
     {
 
-        public class castle
+        /*public class castle
         {
             private int blood;  //血量
 
@@ -28,9 +29,9 @@ namespace catWar
                     return true;
                 return false;
             }
-        }
+        }*/
 
-        public class soldier
+        /*public class soldier
         {
             private static int start_point=200;
             private static int end_point=1000;
@@ -151,8 +152,7 @@ namespace catWar
                             break;
                     }
                 }
-                f.Controls.Add(label0);
-                
+                f.Controls.Add(label0);     
             }
 
             public void clock()
@@ -164,7 +164,6 @@ namespace catWar
                     attack();
                 if (clk % 10 == 0)
                     move();
-
             }
 
             public int get_position()
@@ -235,20 +234,23 @@ namespace catWar
                 }
                 return false;
             }
-        }
+        }*/
 
         public static int questionLevel;
 
-        public static bool form3_result;
+        public bool form3_result;
 
-        public static int size = 100000;
+        public static int size = 100;
 
-        public static int our_num = 0, enemy_num = 0;
+        public int our_num = 0, enemy_num = 0;
 
-        castle our_castle = new castle();
-        castle enemy_castle = new castle();
-        soldier[] our_soldier = new soldier[size];
-        soldier[] enemy_soldier = new soldier[size];
+        Castle our_castle = new Castle();
+        Castle enemy_castle = new Castle();
+        Soldier[] our_soldier = new Soldier[size];
+        Soldier[] enemy_soldier = new Soldier[size];
+        List<int>[] our_axis,enemy_axis;
+        //List<int> our_num, enemy_num;
+        int our_front=200, enemy_front=1000;
 
         public Form2()
         {
@@ -257,10 +259,22 @@ namespace catWar
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            DoubleBuffered = true;
+            our_axis = new List<int>[1001];
+            enemy_axis = new List<int>[1001];
+            for (int i = 0; i < 1001; i++)
+            {
+                our_axis[i] = new List<int>();
+                enemy_axis[i] = new List<int>();
+            }
+                
+            our_front = 200;
+            enemy_front = 1000;
             button2.Click += button1_Click;
             button3.Click += button1_Click;
             button4.Click += button1_Click;
             button5.Click += button1_Click;
+            timer1.Interval = 100;
             timer1.Enabled = true;
         }
 
@@ -272,30 +286,40 @@ namespace catWar
         public void set_form3_result(bool b) 
         {
             form3_result = b;
-            //form3_result = true;
 
-            label1.Text = form3_result.ToString();
+            //label1.Text = form3_result.ToString();
             if (form3_result == true)
             {
-                our_soldier[our_num] = new soldier(0, questionLevel, this);
+                our_soldier[our_num] = new Soldier(0, questionLevel, this);
+                //enemy_soldier[enemy_num] = new Soldier(0, questionLevel, this);
+                
+                //our_axis[200].Add(our_soldier[our_num].index);
                 our_num++;
+                //enemy_num++;
             }
         }
 
-        public void set_front()
+        public void set_enemy_front()
         {
-            int temp;
-            for (int i = 0; i < our_num; i++)
+            for (int i = 200; i <= 1000; i++)
             {
-                temp=our_soldier[i].get_position();
-                if (temp > our_soldier[i].get_front(0) && temp < 100)
-                    our_soldier[i].set_front(0, temp);
+                if (enemy_axis[i].Count != 0)
+                {
+                    enemy_front = i;
+                    break;
+                } 
             }
-            for (int i = 0; i < enemy_num; i++)
+        }
+
+        public void set_our_front()
+        {
+            for(int i = 1000 ; i >= 200 ; i--)
             {
-                temp = enemy_soldier[i].get_position();
-                if (temp < enemy_soldier[i].get_front(1) && temp >0)
-                    enemy_soldier[i].set_front(1, temp);
+                if(our_axis[i].Count != 0)
+                {
+                    our_front = i;
+                    break;
+                }
             }
         }
 
@@ -310,14 +334,14 @@ namespace catWar
                 questionLevel = 3;
             else if (press.Equals(button4))
                 questionLevel = 4;
-            else//測試派出敵人用
+            /*else//測試派出敵人用
             {
-                enemy_soldier[enemy_num] = new soldier(1, 4, this);
+                enemy_soldier[enemy_num] = new soldier(1, 4);
                 enemy_num++;
                 return;
-            }
-            //else
-            //    questionLevel = 5;
+            }*/
+            else
+                questionLevel = 5;
             Form3 f3 = new Form3(this);
             f3.ShowDialog();
         }
@@ -326,13 +350,63 @@ namespace catWar
         {
             for (int i = 0; i < our_num; i++)
             {
-                our_soldier[i].clock();
-                set_front();
+                if (our_soldier[i].get_position() + our_soldier[i].getMoveAbility() >= enemy_front)//enough attack range
+                {
+                    if (our_soldier[i].get_cycle() % our_soldier[i].get_atk_speed() == 0)//can attack
+                    {
+                        our_soldier[i].attack();
+                        int[] tempArray = enemy_axis[enemy_front].ToArray();
+                        enemy_soldier[tempArray[0]].attacked(our_soldier[i].getAttackPower());
+                        if (enemy_soldier[tempArray[0]].is_dead())
+                        {
+                            enemy_axis[enemy_front].RemoveAt(0);
+                            if (enemy_axis[enemy_front].Count == 0)
+                                set_enemy_front();
+                        }
+                    }
+                    else//in attack interval
+                    {
+                        our_soldier[i].hold();
+                    }
+                }
+                else//not enough attack range , move
+                {
+                    our_soldier[i].set_cycle(0);
+                    our_soldier[i].pic.Left += our_soldier[i].getMoveAbility();
+                    our_soldier[i].set_position(our_soldier[i].get_position() + our_soldier[i].getMoveAbility());
+                    set_our_front();
+                }
             }
             for (int i = 0; i < enemy_num; i++)
             {
-                enemy_soldier[i].clock();
-                set_front();
+                if (enemy_soldier[i].get_position() - enemy_soldier[i].getMoveAbility() <= our_front)//enough attack range
+                {
+                    if (enemy_soldier[i].get_cycle() % enemy_soldier[i].get_atk_speed() == 0)//can attack
+                    {
+                        enemy_soldier[i].attack();
+                        int[] tempArray = our_axis[our_front].ToArray();
+                        our_soldier[tempArray[0]].attacked(enemy_soldier[i].getAttackPower());
+                        if (our_soldier[tempArray[0]].is_dead())
+                        {
+                            our_axis[our_front].RemoveAt(0);
+                            if (our_axis[our_front].Count == 0)
+                                set_our_front();
+                        }
+                    }
+                    else//in attack interval
+                    {
+                        enemy_soldier[i].hold();
+                    }
+                }
+                else//not enough attack range , move
+                {
+                    enemy_soldier[i].set_cycle(0);
+                    enemy_soldier[i].pic.Left -= enemy_soldier[i].getMoveAbility();
+                    enemy_soldier[i].set_position(enemy_soldier[i].get_position() + enemy_soldier[i].getMoveAbility());
+                    set_enemy_front();
+                }
+               // enemy_soldier[i].clock();
+                //set_front();
             }
         }
     }
