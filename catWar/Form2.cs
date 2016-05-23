@@ -23,6 +23,7 @@ namespace catWar
         Castle enemy_castle = new Castle();
         List<Soldier> our_soldier, enemy_soldier;
         int our_front, enemy_front;
+        int [] button_clock = new int [6];
 
         public Form2()
         {
@@ -55,8 +56,37 @@ namespace catWar
 
             if (form3_result == true)
             {
+                switch (questionLevel)
+                {
+                    case 1:
+                        button_clock[questionLevel] += 60; button1.Enabled = false; button1.BackColor= Color.Black; break;
+                    case 2:
+                        button_clock[questionLevel] += 100; button2.Enabled = false; button2.BackColor= Color.Black; break;
+                    case 3:
+                        button_clock[questionLevel] += 140; button3.Enabled = false; button3.BackColor= Color.Black; break;
+                    case 4:
+                        button_clock[questionLevel] += 220; button4.Enabled = false; button4.BackColor= Color.Black; break;
+                    case 5:
+                        button_clock[questionLevel] += 350; button5.Enabled = false; button5.BackColor= Color.Black; break;
+                }
                 Soldier temp = new Soldier(0, questionLevel, this);//generate soldier
                 our_soldier.Add(temp);
+            }
+            else 
+            {
+                switch (questionLevel)
+                {
+                    case 1:
+                        button_clock[questionLevel] += 120; button1.Enabled = false; button1.BackColor = Color.Black; break;
+                    case 2:
+                        button_clock[questionLevel] += 200; button2.Enabled = false; button2.BackColor = Color.Black; break;
+                    case 3:
+                        button_clock[questionLevel] += 280; button3.Enabled = false; button3.BackColor = Color.Black; break;
+                    case 4:
+                        button_clock[questionLevel] += 440; button4.Enabled = false; button4.BackColor = Color.Black; break;
+                    case 5:
+                        button_clock[questionLevel] += 700; button5.Enabled = false; button5.BackColor = Color.Black; break;
+                }           
             }
         }
 
@@ -236,7 +266,40 @@ namespace catWar
                     enemy_soldier[i].set_position(enemy_soldier[i].get_position() + enemy_soldier[i].getMoveAbility());
                     set_enemy_front();
                 }
-            
+
+            }
+            for (int i = 1; i < 6; i++)
+            {
+                button_clock[i]--;
+                if (button_clock[i] <= 0)
+                {
+                    switch (i)
+                    {
+                        case 1:
+                            button1.Enabled = true; button1.BackColor= Color.White; break;
+                        case 2:
+                            button2.Enabled = true; button2.BackColor= Color.White; break;
+                        case 3:
+                            button3.Enabled = true; button3.BackColor= Color.White; break;
+                        case 4:
+                            button4.Enabled = true; button4.BackColor= Color.White; break;
+                        case 5:
+                            button5.Enabled = true; button5.BackColor = Color.White; break;
+                    }
+                }
+            }
+            {
+                Random i = new Random();
+                int arg =500;
+                for(int j=8;j>0;j--)
+                {
+                    if(i.Next(999999)%(arg*j) == 0)
+                    {
+                        Soldier temp = new Soldier(1, j, this);
+                        enemy_soldier.Add(temp);
+                        break;
+                    }                
+                }
             }
         }
 

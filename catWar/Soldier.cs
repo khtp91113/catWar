@@ -27,8 +27,36 @@ namespace catWar
         public Soldier(int arg_side, int level, Form f) 
         {
             pic = new PictureBox();
-            pic.Size = new Size(50, 50);
-            pic.Image = Resource1.tusky_005;
+            pic.Size = new Size(100, 100);
+            pic.SizeMode = PictureBoxSizeMode.StretchImage;
+            if (side == 0)
+            {
+                switch (level) 
+                {
+                    case 1: pic.Image = Resource1.our_1; break;
+                    case 2: pic.Image = Resource1.our_2; break;
+                    case 3: pic.Image = Resource1.our_3; break;
+                    case 4: pic.Image = Resource1.our_4; break;
+                    case 5: pic.Image = Resource1.our_5; break;
+                    default: pic.Image = Resource1.our_5; break;
+                }
+            }
+            else if (side == 1)
+            {
+                switch (level)
+                {
+                    case 1: pic.Image = Resource1.enemy_1; break;
+                    case 2: pic.Image = Resource1.enemy_2; break;
+                    case 3: pic.Image = Resource1.enemy_3; break;
+                    case 4: pic.Image = Resource1.enemy_4; break;
+                    case 5: pic.Image = Resource1.enemy_5; break;
+                    case 6: pic.Image = Resource1.enemy_6; break;
+                    case 7: pic.Image = Resource1.enemy_7; break;
+                    case 8: pic.Image = Resource1.enemy_8; break;
+                    default: pic.Image = Resource1.enemy_8; break;
+                }
+            }
+
             pic.Parent = f; 
             init(arg_side,level);
         }
@@ -40,42 +68,42 @@ namespace catWar
                 side = 0;
                 position = 200;
                 pic.Left = 200;
-                pic.Top = 300;
+                pic.Top = 350;
                 //Point(start_point + (end_point - start_point) / 100 * position, 300)
                 switch (level)
                 {
                     case 1:
                         blood=250;
                         atk_ab=30;
-                        atk_speed=500;
+                        atk_speed=50;
                         dfn_ab=10;
                         move_ab=2;
                         break;
                     case 2:
                         blood=200;
                         atk_ab=50;
-                        atk_speed=500;
+                        atk_speed=50;
                         dfn_ab=5;
                         move_ab=3;
                         break;
                     case 3:
                         blood=300;
                         atk_ab=120;
-                        atk_speed=1000;
+                        atk_speed=100;
                         dfn_ab=15;
                         move_ab=2;
                         break;
                     case 4:
                         blood=250;
                         atk_ab=50;
-                        atk_speed=250;
+                        atk_speed=25;
                         dfn_ab=10;
                         move_ab=5;
                         break;
                     case 5:
                         blood=1000;
                         atk_ab=200;
-                        atk_speed=750;
+                        atk_speed=75;
                         dfn_ab=25;
                         move_ab=1;
                         break;
@@ -86,44 +114,65 @@ namespace catWar
                 side = 1;
                 position = 1000;
                 pic.Left = 1000;
-                pic.Top = 300;
+                pic.Top = 350;
                 //Point(start_point + (end_point - start_point) / 100 * position, 300);
                 switch (level)
                 {
                     case 1:
-                        blood=250;
+                        blood=240;
                         atk_ab=30;
-                        atk_speed=500;
+                        atk_speed=50;
                         dfn_ab=10;
                         move_ab= -2;
                         break;
                     case 2:
-                        blood=200;
+                        blood=180;
                         atk_ab=50;
-                        atk_speed=500;
+                        atk_speed=50;
                         dfn_ab=5;
                         move_ab= -3;
                         break;
                     case 3:
                         blood=300;
-                        atk_ab=120;
-                        atk_speed=1000;
+                        atk_ab=100;
+                        atk_speed=100;
                         dfn_ab=15;
                         move_ab= -2;
                         break;
                     case 4:
                         blood=250;
-                        atk_ab=50;
-                        atk_speed=250;
+                        atk_ab=60;
+                        atk_speed=25;
                         dfn_ab=10;
                         move_ab= -5;
                         break;
                     case 5:
-                        blood=1000;
+                        blood=1200;
                         atk_ab=200;
-                        atk_speed=750;
+                        atk_speed=75;
                         dfn_ab=25;
                         move_ab= -1;
+                        break;
+                    case 6:
+                        blood = 2000;
+                        atk_ab = 250;
+                        atk_speed = 50;
+                        dfn_ab = 25;
+                        move_ab = -2;
+                        break;
+                    case 7:
+                        blood = 750;
+                        atk_ab = 200;
+                        atk_speed = 25;
+                        dfn_ab = 10;
+                        move_ab = -5;
+                        break;
+                    case 8:
+                        blood = 2500;
+                        atk_ab = 700;
+                        atk_speed = 100;
+                        dfn_ab = 20;
+                        move_ab = -1;
                         break;
                 }
             }
@@ -166,7 +215,7 @@ namespace catWar
 
         public void move()
         {
-            pic.Image = Resource1.tusky_005;//change to move figure
+            //pic.Image = Resource1.tusky_005;//change to move figure
             //position = x;
             //label0.BringToFront();
             //position += move_ab;
@@ -201,12 +250,12 @@ namespace catWar
 
         public void hold()
         {
-            pic.Image = Resource1.tusky_092;//change to freeze figure
+            //pic.Image = Resource1.tusky_092;//change to freeze figure
         }
 
         public void attack()
         {
-            pic.Image = Resource1.tusky_006;//change to attack figure
+            //pic.Image = Resource1.tusky_006;//change to attack figure
         }
 
         public void attacked(int x)

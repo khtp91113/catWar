@@ -170,9 +170,43 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <None Include="Resources\tusky_092.gif" />
-    <None Include="Resources\tusky_006.gif" />
-    <None Include="Resources\tusky_005.gif" />
+    <Content Include="Resources\808cc39bb2f91b3f53a8b7494b7bc6bb.jpg" />
+    <Content Include="Resources\990ed09913ccf0ffbb9400b6544b158f.jpg" />
+    <Content Include="Resources\bg_1.png" />
+    <Content Include="Resources\bg_2.png" />
+    <Content Include="Resources\bg_3.jpg" />
+    <None Include="Resources\castle_1.png" />
+    <None Include="Resources\castle_2.png" />
+    <None Include="Resources\castle_3.png" />
+    <None Include="Resources\castle_4.png" />
+    <None Include="Resources\castle_5.png" />
+    <None Include="Resources\castle_6.png" />
+    <Content Include="Resources\enemy_1.gif" />
+    <Content Include="Resources\enemy_2.gif" />
+    <Content Include="Resources\enemy_3.gif" />
+    <Content Include="Resources\enemy_4.gif" />
+    <Content Include="Resources\enemy_5.gif" />
+    <Content Include="Resources\enemy_6.gif" />
+    <Content Include="Resources\enemy_7.gif" />
+    <Content Include="Resources\enemy_8.gif" />
+    <Content Include="Resources\our_1.gif" />
+    <None Include="Resources\our_1.jpeg" />
+    <None Include="Resources\our_1.png" />
+    <Content Include="Resources\our_2.gif" />
+    <None Include="Resources\our_2.jpeg" />
+    <None Include="Resources\our_2.png" />
+    <Content Include="Resources\our_3.gif" />
+    <None Include="Resources\our_3.jpeg" />
+    <None Include="Resources\our_3.png" />
+    <Content Include="Resources\our_4.gif" />
+    <None Include="Resources\our_4.jpeg" />
+    <None Include="Resources\our_4.png" />
+    <Content Include="Resources\our_5.gif" />
+    <None Include="Resources\our_5.jpeg" />
+    <None Include="Resources\our_5.png" />
+    <Content Include="Resources\tusky_005.gif" />
+    <Content Include="Resources\tusky_006.gif" />
+    <Content Include="Resources\tusky_092.gif" />
     <None Include="question.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
