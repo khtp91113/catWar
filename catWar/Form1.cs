@@ -15,7 +15,6 @@ namespace catWar
     public partial class Form1 : Form
     {
         static public Form1 f1;
-        //string connectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\question.mdf;Integrated Security=True";
         
         public Form1()
         {
@@ -66,30 +65,13 @@ namespace catWar
             comboBox1.Hide();
             label1.Show();
             button4.Show();
-            label1.Text = "無盡模式\n說明: ...";
-            //database code
-            /*SqlConnection sql = new SqlConnection(connectionString);//connect
-            sql.Open();
-            
-            SqlCommand sqlcom = new SqlCommand("INSERT INTO question (question,ans) VALUES('fdf',2)", sql);//insert notice: after insert if reconnect to database all insert will be recover
-            sqlcom.ExecuteNonQuery();            
-
-            string strCount = "SELECT COUNT(*) FROM question";//count total row
-            SqlCommand Command = new SqlCommand(strCount, sql);
-            int v = (int)Command.ExecuteScalar();
-            button3.Text = v.ToString();
-            
-            String strSQL = "select * from question where \"id\" IN (15)";//select row
-            SqlCommand myCommand = new SqlCommand(strSQL,sql);
-            SqlDataReader myDataReader = myCommand.ExecuteReader();
-            myDataReader.Read();
-            button1.Text = myDataReader["question"].ToString();
-
-            sql.Close();*/
-            
+            label1.Text = "無盡模式\n說明: ...";            
         }
 
-
-
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form4 f4 = new Form4();
+            f4.ShowDialog();
+        }
     }
 }

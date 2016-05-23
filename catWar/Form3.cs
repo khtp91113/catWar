@@ -62,6 +62,7 @@ namespace catWar
                 string strCount = "SELECT COUNT(*) FROM Level4";//count total row
                 SqlCommand countCommand = new SqlCommand(strCount, sql);
                 int total = (int)countCommand.ExecuteScalar();
+                System.Console.WriteLine(total.ToString());
                 Random r = new Random();
                 int id = r.Next(0, total) + 1;
                 strFind = "select * from Level4 where \"id\" IN (" + id.ToString() + ")";//select row

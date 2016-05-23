@@ -8,7 +8,7 @@ namespace catWar
 {
     class Castle
     {
-        private int blood;  //血量
+        private int blood = 2000;  //血量
 
         public void attacked(int x) //被攻擊
         {

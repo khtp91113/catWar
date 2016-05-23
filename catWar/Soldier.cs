@@ -12,22 +12,17 @@ namespace catWar
     {
         private static int start_point=200;
         private static int end_point=1000;
-        private static int y_point = 300;
-        //private static int our_front=0;
-        //private static int enemy_front=100;
-            
+           
         private int side;        //0:我方 1:敵方
         private int blood;       //血量
         private int position;    //位置
-        private int order;       //順序
+        //private int order;       //順序
         private int atk_ab;      //攻擊力
         private int atk_speed; //攻擊間隔
-        private bool atk_mode=false;
         private int dfn_ab;      //防禦力
         private int move_ab;   //移動力
-        private int cycle = 0;
+        private int cycle = 0; //用來讓攻擊圖案持續久一點
         public PictureBox pic;
-        private int index;
         
         public Soldier(int arg_side, int level, Form f) 
         {
@@ -44,9 +39,8 @@ namespace catWar
             {
                 side = 0;
                 position = 200;
-                pic.Left = 50;
+                pic.Left = 200;
                 pic.Top = 300;
-                //order = our_num;
                 //Point(start_point + (end_point - start_point) / 100 * position, 300)
                 switch (level)
                 {
@@ -93,7 +87,6 @@ namespace catWar
                 position = 1000;
                 pic.Left = 1000;
                 pic.Top = 300;
-                //order = enemy_num;
                 //Point(start_point + (end_point - start_point) / 100 * position, 300);
                 switch (level)
                 {
@@ -134,7 +127,6 @@ namespace catWar
                         break;
                 }
             }
-            //t.Interval = 500;
             pic.Show();
         }
 
@@ -172,11 +164,9 @@ namespace catWar
                 enemy_front = value;
         }*/
 
-        public void move(int x)
+        public void move()
         {
-
-            //change to move figure
-
+            pic.Image = Resource1.tusky_005;//change to move figure
             //position = x;
             //label0.BringToFront();
             //position += move_ab;
@@ -211,12 +201,12 @@ namespace catWar
 
         public void hold()
         {
-            //in atk interval freeze
+            pic.Image = Resource1.tusky_092;//change to freeze figure
         }
 
         public void attack()
         {
-            //change to attack figure
+            pic.Image = Resource1.tusky_006;//change to attack figure
         }
 
         public void attacked(int x)
