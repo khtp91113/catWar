@@ -53,7 +53,7 @@ namespace catWar
                 SqlConnection sql = new SqlConnection(connectionString);//connect
                 sql.Open();
 
-                SqlCommand sqlcom = new SqlCommand("INSERT INTO level" + level.ToString() + " (question,option1,option2,option3,option4,ans) VALUES('" + textBox1.Text +"','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "'," + textBox6.Text + ")", sql);//insert notice: after insert if reconnect to database all insert will be recover
+                SqlCommand sqlcom = new SqlCommand("INSERT INTO Level" + level.ToString() + " (question,option1,option2,option3,option4,ans) VALUES('" + textBox1.Text +"','" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "'," + textBox6.Text + ")", sql);//insert notice: after insert if reconnect to database all insert will be recover
                 sqlcom.ExecuteNonQuery();
 
                 sql.Close();

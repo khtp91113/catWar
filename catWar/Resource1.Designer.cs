@@ -93,6 +93,16 @@ namespace catWar {
         /// <summary>
         ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
         /// </summary>
+        internal static System.Drawing.Bitmap castle_1_resize {
+            get {
+                object obj = ResourceManager.GetObject("castle_1_resize", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
         internal static System.Drawing.Bitmap castle_2 {
             get {
                 object obj = ResourceManager.GetObject("castle_2", resourceCulture);
@@ -126,6 +136,16 @@ namespace catWar {
         internal static System.Drawing.Bitmap castle_5 {
             get {
                 object obj = ResourceManager.GetObject("castle_5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap castle_5_resize {
+            get {
+                object obj = ResourceManager.GetObject("castle_5_resize", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

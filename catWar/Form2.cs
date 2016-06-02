@@ -19,8 +19,7 @@ namespace catWar
 
         public int size = 50;//picture width
 
-        Castle our_castle = new Castle();
-        Castle enemy_castle = new Castle();
+        Castle our_castle, enemy_castle;
         List<Soldier> our_soldier, enemy_soldier;
         int our_front, enemy_front;
         int [] button_clock = new int [6];
@@ -32,6 +31,9 @@ namespace catWar
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            
+            our_castle = new Castle(this,1);
+            enemy_castle = new Castle(this,2);
             DoubleBuffered = true;
             our_soldier = new List<Soldier>();
             enemy_soldier = new List<Soldier>();            
@@ -145,7 +147,7 @@ namespace catWar
             {
                 if (our_soldier[i].get_position() + our_soldier[i].getMoveAbility() + size >= enemy_front && enemy_soldier.Count != 0)//soldier can attack at least one enemy
                 {
-                    if (our_soldier[i].get_cycle() <= (our_soldier[i].get_atk_speed() / 4))//let attack image last longer
+                    if (our_soldier[i].get_cycle() <= (our_soldier[i].get_atk_speed() / 2))//let attack image last longer
                     {
                         if (our_soldier[i].get_cycle() == 0)//attack
                         {
@@ -154,9 +156,10 @@ namespace catWar
                             {
                                 if(enemy_soldier[j].get_position() == enemy_front)
                                 {
-                                    enemy_soldier[j].attacked(our_soldier[i].getAttackPower());//enemy lose health
+                                    enemy_soldier[j].attacked(our_soldier[i].getAttackPower() - enemy_soldier[j].get_defense());//enemy lose health
                                     if(enemy_soldier[j].is_dead())
                                     {
+                                        enemy_soldier[j] = null;
                                         enemy_soldier.RemoveAt(j);
                                     }
                                     break;
@@ -170,9 +173,9 @@ namespace catWar
                     }
                     our_soldier[i].set_cycle(our_soldier[i].get_cycle() + 1);
                 }
-                else if(our_soldier[i].get_position() + our_soldier[i].getMoveAbility() >= 1000 && enemy_soldier.Count == 0)//get to enemy castle and there's no enemy, attack castle
+                else if(our_soldier[i].get_position() + our_soldier[i].getMoveAbility() >= 1020 && enemy_soldier.Count == 0)//get to enemy castle and there's no enemy, attack castle
                 {
-                    if (our_soldier[i].get_cycle() <= (our_soldier[i].get_atk_speed() / 4))//let attack image last longer
+                    if (our_soldier[i].get_cycle() <= (our_soldier[i].get_atk_speed() / 2))//let attack image last longer
                     {
                         our_soldier[i].attack();
                         
@@ -199,6 +202,7 @@ namespace catWar
                     our_soldier[i].move();
                     our_soldier[i].set_cycle(0);
                     our_soldier[i].pic.Left += our_soldier[i].getMoveAbility();//move soldier
+                    //our_soldier[i].bar.Left = our_soldier[i].pic.Left;
                     our_soldier[i].set_position(our_soldier[i].get_position() + our_soldier[i].getMoveAbility());//update solier's position value
                     set_our_front();//update first soldier's location
                 }
@@ -208,7 +212,7 @@ namespace catWar
             {
                 if (enemy_soldier[i].get_position() + enemy_soldier[i].getMoveAbility() <= our_front + size && our_soldier.Count != 0)//enough attack range
                 {
-                    if (enemy_soldier[i].get_cycle() <= (enemy_soldier[i].get_atk_speed() / 4))//let attack image last longer
+                    if (enemy_soldier[i].get_cycle() <= (enemy_soldier[i].get_atk_speed() / 2))//let attack image last longer
                     {
                         if (enemy_soldier[i].get_cycle() == 0)
                         {
@@ -217,9 +221,10 @@ namespace catWar
                             {
                                 if (our_soldier[j].get_position() == our_front)
                                 {
-                                    our_soldier[j].attacked(enemy_soldier[i].getAttackPower());
+                                    our_soldier[j].attacked(enemy_soldier[i].getAttackPower() - our_soldier[j].get_defense());
                                     if (our_soldier[j].is_dead())
                                     {
+                                        our_soldier[j] = null;
                                         our_soldier.RemoveAt(j);
                                     }
                                     break;
@@ -236,7 +241,7 @@ namespace catWar
                 }
                 else if(enemy_soldier[i].get_position() + enemy_soldier[i].getMoveAbility() <= 200 && our_soldier.Count == 0)//attack castle
                 {
-                    if (enemy_soldier[i].get_cycle() <= (enemy_soldier[i].get_atk_speed() / 4))
+                    if (enemy_soldier[i].get_cycle() <= (enemy_soldier[i].get_atk_speed() / 2))
                     {
                         enemy_soldier[i].attack();
                         
@@ -263,11 +268,13 @@ namespace catWar
                     enemy_soldier[i].move();
                     enemy_soldier[i].set_cycle(0);
                     enemy_soldier[i].pic.Left += enemy_soldier[i].getMoveAbility();
+                    //enemy_soldier[i].bar.Left = enemy_soldier[i].pic.Left;
                     enemy_soldier[i].set_position(enemy_soldier[i].get_position() + enemy_soldier[i].getMoveAbility());
                     set_enemy_front();
                 }
 
             }
+
             for (int i = 1; i < 6; i++)
             {
                 button_clock[i]--;

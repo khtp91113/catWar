@@ -23,12 +23,15 @@ namespace catWar
         private int move_ab;   //移動力
         private int cycle = 0; //用來讓攻擊圖案持續久一點
         public PictureBox pic;
-        
+        //public ProgressBar bar;
+
         public Soldier(int arg_side, int level, Form f) 
         {
             pic = new PictureBox();
             pic.Size = new Size(100, 100);
             pic.SizeMode = PictureBoxSizeMode.StretchImage;
+            //bar = new ProgressBar();
+            //bar.Size = new Size(100, 10);
             if (side == 0)
             {
                 switch (level) 
@@ -38,7 +41,7 @@ namespace catWar
                     case 3: pic.Image = Resource1.our_3; break;
                     case 4: pic.Image = Resource1.our_4; break;
                     case 5: pic.Image = Resource1.our_5; break;
-                    default: pic.Image = Resource1.our_5; break;
+                    //default: pic.Image = Resource1.our_5; break;
                 }
             }
             else if (side == 1)
@@ -53,10 +56,10 @@ namespace catWar
                     case 6: pic.Image = Resource1.enemy_6; break;
                     case 7: pic.Image = Resource1.enemy_7; break;
                     case 8: pic.Image = Resource1.enemy_8; break;
-                    default: pic.Image = Resource1.enemy_8; break;
+                    //default: pic.Image = Resource1.enemy_8; break;
                 }
             }
-
+            //bar.Parent = f;
             pic.Parent = f; 
             init(arg_side,level);
         }
@@ -69,6 +72,8 @@ namespace catWar
                 position = 200;
                 pic.Left = 200;
                 pic.Top = 350;
+                //bar.Top = pic.Top - 20;
+                //bar.Left = pic.Left;
                 //Point(start_point + (end_point - start_point) / 100 * position, 300)
                 switch (level)
                 {
@@ -115,6 +120,8 @@ namespace catWar
                 position = 1000;
                 pic.Left = 1000;
                 pic.Top = 350;
+               // bar.Top = pic.Top - 20;
+                //bar.Left = pic.Left;
                 //Point(start_point + (end_point - start_point) / 100 * position, 300);
                 switch (level)
                 {
@@ -176,6 +183,8 @@ namespace catWar
                         break;
                 }
             }
+            //bar.Maximum = blood;
+            //bar.Value = blood;
             pic.Show();
         }
 
@@ -261,6 +270,10 @@ namespace catWar
         public void attacked(int x)
         {
             blood -= x;
+            //if (blood < 0)
+            //    bar.Value = 0;
+            //else
+            //    bar.Value = blood;
         }
 
         public bool is_dead()
@@ -268,6 +281,9 @@ namespace catWar
             if (blood <= 0)
             {
                 pic.Hide();
+                pic.Enabled = false;
+                //bar.Enabled = false;
+                //bar.Hide();
                 return true;
             }
             return false;
@@ -298,6 +314,11 @@ namespace catWar
         public int get_atk_speed()
         {
             return atk_speed;
+        }
+
+        public int get_defense()
+        {
+            return dfn_ab;
         }
     }
 }
