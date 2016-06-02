@@ -343,6 +343,16 @@ namespace catWar {
         /// <summary>
         ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
         /// </summary>
+        internal static System.Drawing.Bitmap our_52 {
+            get {
+                object obj = ResourceManager.GetObject("our_52", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
         internal static System.Drawing.Bitmap tusky_005 {
             get {
                 object obj = ResourceManager.GetObject("tusky_005", resourceCulture);

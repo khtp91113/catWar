@@ -14,7 +14,7 @@ namespace catWar
     public partial class Form2 : Form
     {
         public static int questionLevel;
-
+        
         public bool form3_result;
 
         public int size = 50;//picture width
@@ -23,6 +23,7 @@ namespace catWar
         List<Soldier> our_soldier, enemy_soldier;
         int our_front, enemy_front;
         int [] button_clock = new int [6];
+        private int gameResult;
 
         public Form2()
         {
@@ -31,19 +32,19 @@ namespace catWar
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            
+            gameResult = 0;
             our_castle = new Castle(this,1);
             enemy_castle = new Castle(this,2);
             DoubleBuffered = true;
             our_soldier = new List<Soldier>();
             enemy_soldier = new List<Soldier>();            
-            our_front = 199;//our front save first soldier's x location, if there is no soldier let it be start_point-1
-            enemy_front = 1001;//enemy_front save first enemy's x location, if there is no enemy let it be end_point+1
+            our_front = pictureBox1.Left + pictureBox1.Width - 1;//our front save first soldier's x location, if there is no soldier let it be start_point-1
+            enemy_front = pictureBox2.Left + 1;//enemy_front save first enemy's x location, if there is no enemy let it be end_point+1
             button2.Click += button1_Click;
             button3.Click += button1_Click;
             button4.Click += button1_Click;
             button5.Click += button1_Click;
-            timer1.Interval = 100;
+            timer1.Interval = 1;
             timer1.Enabled = true;
         }
 
@@ -96,7 +97,7 @@ namespace catWar
         {
             if(enemy_soldier.Count == 0)
             {
-                enemy_front = 1001;
+                enemy_front = pictureBox2.Left + 1;
             }
             else
             {
@@ -112,7 +113,7 @@ namespace catWar
         {
             if (our_soldier.Count == 0)
             {
-                our_front = 199;
+                our_front = pictureBox1.Left + pictureBox1.Width - 1;
             }
             else
             {
@@ -184,11 +185,8 @@ namespace catWar
                         if(enemy_castle.is_dead())//destroy enemy castle, win
                         {
                             timer1.Enabled = false;
-                            DialogResult d = MessageBox.Show("win","Victory",MessageBoxButtons.OK);
-                            if(d == DialogResult.OK)
-                            {
-                                this.Close();
-                            }
+                            gameResult = 1;
+                            break;
                         }
                     }
                     else//between attack interval
@@ -205,6 +203,14 @@ namespace catWar
                     //our_soldier[i].bar.Left = our_soldier[i].pic.Left;
                     our_soldier[i].set_position(our_soldier[i].get_position() + our_soldier[i].getMoveAbility());//update solier's position value
                     set_our_front();//update first soldier's location
+                }
+            }
+            if(gameResult == 1)
+            {
+                DialogResult d = MessageBox.Show("win", "Victory", MessageBoxButtons.OK);
+                if (d == DialogResult.OK)
+                {
+                    this.Close();
                 }
             }
 
@@ -250,11 +256,9 @@ namespace catWar
                         if(our_castle.is_dead())
                         {
                             timer1.Enabled = false;
-                            DialogResult d = MessageBox.Show("lose","Defeat",MessageBoxButtons.OK);
-                            if(d == DialogResult.OK)
-                            {
-                                this.Close();
-                            }
+                            gameResult = 2;
+                            break;
+                            
                         }
                     }
                     else//in attack interval
@@ -274,10 +278,17 @@ namespace catWar
                 }
 
             }
+            if(gameResult == 2)
+            {
+                DialogResult d = MessageBox.Show("lose", "Defeat", MessageBoxButtons.OK);
+                if (d == DialogResult.OK)
+                {
+                    this.Close();
+                }
+            }
 
             for (int i = 1; i < 6; i++)
             {
-                button_clock[i]--;
                 if (button_clock[i] <= 0)
                 {
                     switch (i)
@@ -294,20 +305,21 @@ namespace catWar
                             button5.Enabled = true; button5.BackColor = Color.White; break;
                     }
                 }
+                else
+                    button_clock[i]--;
             }
+            Random r = new Random();
+            int arg =500;
+            for(int j=8;j>0;j--)
             {
-                Random i = new Random();
-                int arg =500;
-                for(int j=8;j>0;j--)
+                if(r.Next(999999)%(arg*j) == 0)
                 {
-                    if(i.Next(999999)%(arg*j) == 0)
-                    {
-                        Soldier temp = new Soldier(1, j, this);
-                        enemy_soldier.Add(temp);
-                        break;
-                    }                
-                }
+                    Soldier temp = new Soldier(1, j, this);
+                    enemy_soldier.Add(temp);
+                    break;
+                }                
             }
+            
         }
 
         private void button6_Click(object sender, EventArgs e)//for test

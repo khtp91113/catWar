@@ -142,17 +142,20 @@
   <data name="enemy_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\enemy_2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="our_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\our_2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="tusky_092" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\tusky_092.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="our_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\our_1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="enemy_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\enemy_3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="tusky_005" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\tusky_005.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="castle_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\castle_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="our_41" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\our_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,8 +166,8 @@
   <data name="enemy_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\enemy_8.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="our_51" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\our_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="castle_5_resize" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\castle_5_resize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="our_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\our_5.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -190,14 +193,14 @@
   <data name="tusky_0061" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\tusky_006.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="our_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\our_2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="our_21" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\our_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="our_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\our_1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="castle_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\castle_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="our_51" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\our_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="castle_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\castle_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,7 +220,7 @@
   <data name="enemy_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\enemy_5.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="castle_5_resize" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\castle_5_resize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="our_52" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\our_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

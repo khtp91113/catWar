@@ -10,8 +10,8 @@ namespace catWar
 {
     class Soldier
     {
-        private static int start_point=200;
-        private static int end_point=1000;
+        //private static int start_point=200;
+        //private static int end_point=1000;
            
         private int side;        //0:我方 1:敵方
         private int blood;       //血量
@@ -24,11 +24,13 @@ namespace catWar
         private int cycle = 0; //用來讓攻擊圖案持續久一點
         public PictureBox pic;
         //public ProgressBar bar;
+        private int kind;
 
         public Soldier(int arg_side, int level, Form f) 
         {
             pic = new PictureBox();
             pic.Size = new Size(100, 100);
+            //pic.BackColor = Color.Transparent;
             pic.SizeMode = PictureBoxSizeMode.StretchImage;
             //bar = new ProgressBar();
             //bar.Size = new Size(100, 10);
@@ -43,6 +45,7 @@ namespace catWar
                     case 5: pic.Image = Resource1.our_5; break;
                     //default: pic.Image = Resource1.our_5; break;
                 }
+                kind = level;
             }
             else if (side == 1)
             {
@@ -58,10 +61,16 @@ namespace catWar
                     case 8: pic.Image = Resource1.enemy_8; break;
                     //default: pic.Image = Resource1.enemy_8; break;
                 }
+                kind = level + 5;
             }
             //bar.Parent = f;
             pic.Parent = f; 
             init(arg_side,level);
+        }
+
+        public int getKind()
+        {
+            return kind;
         }
 
         public void init(int arg_side, int level)
@@ -224,6 +233,7 @@ namespace catWar
 
         public void move()
         {
+
             //pic.Image = Resource1.tusky_005;//change to move figure
             //position = x;
             //label0.BringToFront();
