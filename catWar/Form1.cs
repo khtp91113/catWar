@@ -51,7 +51,15 @@ namespace catWar
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Form2 f2 = new Form2();
+            Form2 f2;
+            switch (comboBox1.Text) 
+            {
+                case "簡單": f2 = new Form2(1); break;
+                case "普通": f2 = new Form2(2); break;
+                case "困難": f2 = new Form2(3); break;
+                case "地獄": f2 = new Form2(4); break;
+                default: f2 = new Form2(5); break;
+            }
             f1 = this;
             this.Hide();
             f2.Show();

@@ -24,10 +24,14 @@ namespace catWar
         int our_front, enemy_front;
         int [] button_clock = new int [6];
         private int gameResult;
-
-        public Form2()
+        
+        int mode;
+        //0: 1:簡單 2:普通 3:困難 4: 5:地獄
+        public Form2(int m)
         {
             InitializeComponent();
+            mode = m;
+            button6.Text = mode.ToString();
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -175,15 +179,20 @@ namespace catWar
                     }
                     our_soldier[i].set_cycle(our_soldier[i].get_cycle() + 1);
                 }
-                else if(our_soldier[i].get_position() + our_soldier[i].getMoveAbility() >= 850 && enemy_soldier.Count == 0)//get to enemy castle and there's no enemy, attack castle
+                else if(our_soldier[i].get_position() + our_soldier[i].getMoveAbility() >= 870 && enemy_soldier.Count == 0)//get to enemy castle and there's no enemy, attack castle
                 {
                     if (our_soldier[i].get_cycle() <= (our_soldier[i].get_atk_speed() / 2))//let attack image last longer
                     {
                         our_soldier[i].attack();
-                        
-                        if(our_soldier[i].get_cycle() == 0)//enemy castle lose health
+
+                        if (our_soldier[i].get_cycle() == 0 && mode != 5)//enemy castle lose health
                             enemy_castle.attacked(our_soldier[i].getAttackPower());
-                        if(enemy_castle.is_dead())//destroy enemy castle, win
+                        if (our_soldier[i].get_cycle() == 0 && mode == 5)//enemy castle lose health
+                        {
+                            Soldier temp = new Soldier(1, 8, this);
+                            enemy_soldier.Add(temp);
+                        }
+                        if(enemy_castle.is_dead()&&mode!=5)//destroy enemy castle, win
                         {
                             timer1.Enabled = false;
                             gameResult = 1;
@@ -310,13 +319,24 @@ namespace catWar
                     button_clock[i]--;
             }
             Random r = new Random();
-            int arg =500;
-            for(int j=8;j>0;j--)
+            int arg=150;
+            int max_level=8;
+            switch (mode) 
             {
-                if(r.Next(999999)%(arg*j) == 0)
+                case 1: arg = 500; max_level = 3; break;
+                case 2: arg = 300; max_level = 5; break;
+                case 3: arg = 225; max_level = 7; break;
+                case 4: arg = 100; max_level = 8; break;
+                default: break;
+            }
+            for(int j=mode;j>0;j--)
+            {
+                if(r.Next(99999)%(arg*j) == 0)
                 {
                     Soldier temp = new Soldier(1, j, this);
                     enemy_soldier.Add(temp);
+                    if(mode==5&&arg>50)
+                        arg--;
                     break;
                 }                
             }

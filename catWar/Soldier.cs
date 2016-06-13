@@ -90,35 +90,35 @@ namespace catWar
                         blood=250;
                         atk_ab=30;
                         atk_speed=50;
-                        dfn_ab=10;
+                        dfn_ab=2;
                         move_ab=2;
                         break;
                     case 2:
                         blood=200;
                         atk_ab=50;
                         atk_speed=50;
-                        dfn_ab=5;
+                        dfn_ab=1;
                         move_ab=3;
                         break;
                     case 3:
                         blood=300;
                         atk_ab=120;
                         atk_speed=100;
-                        dfn_ab=15;
+                        dfn_ab=3;
                         move_ab=2;
                         break;
                     case 4:
                         blood=250;
                         atk_ab=50;
                         atk_speed=25;
-                        dfn_ab=10;
+                        dfn_ab=2;
                         move_ab=5;
                         break;
                     case 5:
                         blood=1000;
                         atk_ab=200;
                         atk_speed=75;
-                        dfn_ab=25;
+                        dfn_ab=5;
                         move_ab=1;
                         break;
                 }
@@ -126,8 +126,8 @@ namespace catWar
             else if (arg_side == 1)
             {
                 side = 1;
-                position = 1000;
-                pic.Left = 1000;
+                position = 850;
+                pic.Left = 850;
                 pic.Top = 350;
                // bar.Top = pic.Top - 20;
                 //bar.Left = pic.Left;
@@ -138,56 +138,56 @@ namespace catWar
                         blood=240;
                         atk_ab=30;
                         atk_speed=50;
-                        dfn_ab=10;
+                        dfn_ab=2;
                         move_ab= -2;
                         break;
                     case 2:
                         blood=180;
                         atk_ab=50;
                         atk_speed=50;
-                        dfn_ab=5;
+                        dfn_ab=1;
                         move_ab= -3;
                         break;
                     case 3:
                         blood=300;
                         atk_ab=100;
                         atk_speed=100;
-                        dfn_ab=15;
+                        dfn_ab=3;
                         move_ab= -2;
                         break;
                     case 4:
                         blood=250;
                         atk_ab=60;
                         atk_speed=25;
-                        dfn_ab=10;
+                        dfn_ab=2;
                         move_ab= -5;
                         break;
                     case 5:
                         blood=1200;
                         atk_ab=200;
                         atk_speed=75;
-                        dfn_ab=25;
+                        dfn_ab=5;
                         move_ab= -1;
                         break;
                     case 6:
                         blood = 2000;
                         atk_ab = 250;
                         atk_speed = 50;
-                        dfn_ab = 25;
+                        dfn_ab = 5;
                         move_ab = -2;
                         break;
                     case 7:
                         blood = 750;
                         atk_ab = 200;
                         atk_speed = 25;
-                        dfn_ab = 10;
+                        dfn_ab = 2;
                         move_ab = -5;
                         break;
                     case 8:
                         blood = 2500;
                         atk_ab = 700;
                         atk_speed = 100;
-                        dfn_ab = 20;
+                        dfn_ab = 4;
                         move_ab = -1;
                         break;
                 }
