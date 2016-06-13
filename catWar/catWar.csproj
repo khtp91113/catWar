@@ -165,6 +165,11 @@
     <None Include="Resources\castle_6.png" />
     <None Include="Resources\castle_1_resize.png" />
     <None Include="Resources\castle_5_resize.png" />
+    <None Include="Resources\button1.png" />
+    <None Include="Resources\button2.png" />
+    <None Include="Resources\button3.png" />
+    <None Include="Resources\button4.png" />
+    <None Include="Resources\button5.png" />
     <Content Include="Resources\enemy_1.gif" />
     <Content Include="Resources\enemy_2.gif" />
     <Content Include="Resources\enemy_3.gif" />
@@ -173,6 +178,7 @@
     <Content Include="Resources\enemy_6.gif" />
     <Content Include="Resources\enemy_7.gif" />
     <Content Include="Resources\enemy_8.gif" />
+    <None Include="Resources\menu_bg.png" />
     <Content Include="Resources\our_1.gif" />
     <None Include="Resources\our_1.jpeg" />
     <None Include="Resources\our_1.png" />

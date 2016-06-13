@@ -34,7 +34,7 @@ namespace catWar
             pic.SizeMode = PictureBoxSizeMode.StretchImage;
             //bar = new ProgressBar();
             //bar.Size = new Size(100, 10);
-            if (side == 0)
+            if (arg_side == 0)
             {
                 switch (level) 
                 {
@@ -47,7 +47,7 @@ namespace catWar
                 }
                 kind = level;
             }
-            else if (side == 1)
+            else if (arg_side == 1)
             {
                 switch (level)
                 {

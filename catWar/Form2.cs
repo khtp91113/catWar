@@ -138,8 +138,9 @@ namespace catWar
                 questionLevel = 4;
             else
                 questionLevel = 5;
-            Form3 f3 = new Form3(this);
-            f3.ShowDialog();
+            //Form3 f3 = new Form3(this);
+            //f3.ShowDialog();
+            set_form3_result(true);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -174,7 +175,7 @@ namespace catWar
                     }
                     our_soldier[i].set_cycle(our_soldier[i].get_cycle() + 1);
                 }
-                else if(our_soldier[i].get_position() + our_soldier[i].getMoveAbility() >= 1020 && enemy_soldier.Count == 0)//get to enemy castle and there's no enemy, attack castle
+                else if(our_soldier[i].get_position() + our_soldier[i].getMoveAbility() >= 850 && enemy_soldier.Count == 0)//get to enemy castle and there's no enemy, attack castle
                 {
                     if (our_soldier[i].get_cycle() <= (our_soldier[i].get_atk_speed() / 2))//let attack image last longer
                     {

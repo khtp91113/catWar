@@ -12,12 +12,6 @@ c:\users\user\documents\visual studio 2013\Projects\catWar\catWar\obj\Debug\catW
 C:\Users\Wang\Desktop\視窗project\catWar\catWar\bin\Debug\catWar.exe.config
 C:\Users\Wang\Desktop\視窗project\catWar\catWar\obj\Debug\catWar.exe
 C:\Users\Wang\Desktop\視窗project\catWar\catWar\obj\Debug\catWar.pdb
-C:\Users\Wang\Desktop\視窗project\catWar\catWar\bin\Debug\question_log.ldf
-C:\Users\Wang\Desktop\視窗project\catWar\catWar\bin\Debug\questionDataSet.Designer.cs
-C:\Users\Wang\Desktop\視窗project\catWar\catWar\bin\Debug\questionDataSet.xsc
-C:\Users\Wang\Desktop\視窗project\catWar\catWar\bin\Debug\questionDataSet.xsd
-C:\Users\Wang\Desktop\視窗project\catWar\catWar\bin\Debug\questionDataSet.xss
-C:\Users\Wang\Desktop\視窗project\catWar\catWar\bin\Debug\question.mdf
 C:\Users\Wang\Desktop\視窗project\catWar\catWar\bin\Debug\catWar.exe
 C:\Users\Wang\Desktop\視窗project\catWar\catWar\bin\Debug\catWar.pdb
 C:\Users\Wang\Desktop\視窗project\catWar\catWar\obj\Debug\catWar.csprojResolveAssemblyReference.cache
