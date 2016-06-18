@@ -24,3 +24,7 @@ C:\Users\user\Documents\Visual Studio 2013\Projects\catWar\catWar\obj\Debug\catW
 C:\Users\user\Documents\Visual Studio 2013\Projects\catWar\catWar\obj\Debug\catWar.Form4.resources
 C:\Users\Wang\Desktop\視窗project\catWar\catWar\obj\Debug\catWar.Form4.resources
 C:\Users\Wang\Desktop\視窗project\catWar\catWar\obj\Debug\catWar.Resource1.resources
+C:\Users\user\Documents\Visual Studio 2013\Projects\catWar\catWar\bin\Debug\questionDataSet1.Designer.cs
+C:\Users\user\Documents\Visual Studio 2013\Projects\catWar\catWar\bin\Debug\questionDataSet1.xsc
+C:\Users\user\Documents\Visual Studio 2013\Projects\catWar\catWar\bin\Debug\questionDataSet1.xsd
+C:\Users\user\Documents\Visual Studio 2013\Projects\catWar\catWar\bin\Debug\questionDataSet1.xss

@@ -23,14 +23,15 @@ namespace catWar
         private int move_ab;   //移動力
         private int cycle = 0; //用來讓攻擊圖案持續久一點
         public PictureBox pic;
-        //public ProgressBar bar;
+        //public ProgressBar bar; //顯示士兵血量
         private int kind;
+        
 
-        public Soldier(int arg_side, int level, Form f) 
+        public Soldier(int arg_side, int level, PictureBox p) 
         {
             pic = new PictureBox();
             pic.Size = new Size(100, 100);
-            //pic.BackColor = Color.Transparent;
+            pic.BackColor = Color.Transparent;
             pic.SizeMode = PictureBoxSizeMode.StretchImage;
             //bar = new ProgressBar();
             //bar.Size = new Size(100, 10);
@@ -43,7 +44,6 @@ namespace catWar
                     case 3: pic.Image = Resource1.our_3; break;
                     case 4: pic.Image = Resource1.our_4; break;
                     case 5: pic.Image = Resource1.our_5; break;
-                    //default: pic.Image = Resource1.our_5; break;
                 }
                 kind = level;
             }
@@ -59,12 +59,11 @@ namespace catWar
                     case 6: pic.Image = Resource1.enemy_6; break;
                     case 7: pic.Image = Resource1.enemy_7; break;
                     case 8: pic.Image = Resource1.enemy_8; break;
-                    //default: pic.Image = Resource1.enemy_8; break;
                 }
                 kind = level + 5;
             }
-            //bar.Parent = f;
-            pic.Parent = f; 
+            //bar.Parent = p;
+            pic.Parent = p; 
             init(arg_side,level);
         }
 

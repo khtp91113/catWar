@@ -17,14 +17,15 @@ namespace catWar
         
         public bool form3_result;
 
-        public int size = 50;//picture width
+        public int size = 100;//picture width
 
         Castle our_castle, enemy_castle;
         List<Soldier> our_soldier, enemy_soldier;
         int our_front, enemy_front;
         int [] button_clock = new int [6];
         private int gameResult;
-        
+        private int ourCastleStart, enemyCastleStart;
+
         int mode;
         //0: 1:簡單 2:普通 3:困難 4: 5:地獄
         public Form2(int m)
@@ -36,19 +37,27 @@ namespace catWar
 
         private void Form2_Load(object sender, EventArgs e)
         {
+
+            ourCastleStart = pictureBox1.Left + pictureBox1.Width - 1;
+            enemyCastleStart = pictureBox2.Left + 1;
+            pictureBox1.Parent = pictureBox3;
+            pictureBox2.Parent = pictureBox3;
             gameResult = 0;
-            our_castle = new Castle(this,1);
-            enemy_castle = new Castle(this,2);
+            our_castle = new Castle(pictureBox3,1);
+            enemy_castle = new Castle(pictureBox3,2);
             DoubleBuffered = true;
             our_soldier = new List<Soldier>();
             enemy_soldier = new List<Soldier>();            
-            our_front = pictureBox1.Left + pictureBox1.Width - 1;//our front save first soldier's x location, if there is no soldier let it be start_point-1
-            enemy_front = pictureBox2.Left + 1;//enemy_front save first enemy's x location, if there is no enemy let it be end_point+1
+            //our_front = pictureBox1.Left + pictureBox1.Width - 1;//our front save first soldier's x location, if there is no soldier let it be start_point-1
+            //enemy_front = pictureBox2.Left + 1;//enemy_front save first enemy's x location, if there is no enemy let it be end_point+1
+            our_front = ourCastleStart;
+            enemy_front = enemyCastleStart;
+
             button2.Click += button1_Click;
             button3.Click += button1_Click;
             button4.Click += button1_Click;
             button5.Click += button1_Click;
-            timer1.Interval = 1;
+            timer1.Interval = 20;
             timer1.Enabled = true;
         }
 
@@ -60,7 +69,7 @@ namespace catWar
         public void set_form3_result(bool b) 
         {
             form3_result = b;
-
+            
             if (form3_result == true)
             {
                 switch (questionLevel)
@@ -76,7 +85,8 @@ namespace catWar
                     case 5:
                         button_clock[questionLevel] += 350; button5.Enabled = false; button5.BackColor= Color.Black; break;
                 }
-                Soldier temp = new Soldier(0, questionLevel, this);//generate soldier
+
+                Soldier temp = new Soldier(0, questionLevel, pictureBox3);//generate soldier
                 our_soldier.Add(temp);
             }
             else 
@@ -101,7 +111,7 @@ namespace catWar
         {
             if(enemy_soldier.Count == 0)
             {
-                enemy_front = pictureBox2.Left + 1;
+                enemy_front = enemyCastleStart;
             }
             else
             {
@@ -117,7 +127,7 @@ namespace catWar
         {
             if (our_soldier.Count == 0)
             {
-                our_front = pictureBox1.Left + pictureBox1.Width - 1;
+                our_front = ourCastleStart;
             }
             else
             {
@@ -142,8 +152,8 @@ namespace catWar
                 questionLevel = 4;
             else
                 questionLevel = 5;
-            //Form3 f3 = new Form3(this);
-            //f3.ShowDialog();
+            Form3 f3 = new Form3(this);
+            f3.ShowDialog();
             set_form3_result(true);
         }
 
@@ -151,8 +161,12 @@ namespace catWar
         {
             for (int i=0; i < our_soldier.Count ; i++)//soldier's moving time
             {
+
                 if (our_soldier[i].get_position() + our_soldier[i].getMoveAbility() + size >= enemy_front && enemy_soldier.Count != 0)//soldier can attack at least one enemy
                 {
+                    if(our_soldier[i].get_position() + size < enemy_front)
+                        our_soldier[i].pic.Left = enemy_front - size;
+                    
                     if (our_soldier[i].get_cycle() <= (our_soldier[i].get_atk_speed() / 2))//let attack image last longer
                     {
                         if (our_soldier[i].get_cycle() == 0)//attack
@@ -179,17 +193,21 @@ namespace catWar
                     }
                     our_soldier[i].set_cycle(our_soldier[i].get_cycle() + 1);
                 }
-                else if(our_soldier[i].get_position() + our_soldier[i].getMoveAbility() >= 870 && enemy_soldier.Count == 0)//get to enemy castle and there's no enemy, attack castle
+                else if(our_soldier[i].get_position() + our_soldier[i].getMoveAbility() + size >= enemyCastleStart - 1 && enemy_soldier.Count == 0)//get to enemy castle and there's no enemy, attack castle
                 {
+                    if(our_soldier[i].get_position() + size < enemyCastleStart - 1)
+                        our_soldier[i].pic.Left = enemyCastleStart - 2 - size;
+
                     if (our_soldier[i].get_cycle() <= (our_soldier[i].get_atk_speed() / 2))//let attack image last longer
                     {
                         our_soldier[i].attack();
-
+                        
                         if (our_soldier[i].get_cycle() == 0 && mode != 5)//enemy castle lose health
                             enemy_castle.attacked(our_soldier[i].getAttackPower());
+
                         if (our_soldier[i].get_cycle() == 0 && mode == 5)//enemy castle lose health
                         {
-                            Soldier temp = new Soldier(1, 8, this);
+                            Soldier temp = new Soldier(1, 8, pictureBox3);
                             enemy_soldier.Add(temp);
                         }
                         if(enemy_castle.is_dead()&&mode!=5)//destroy enemy castle, win
@@ -228,6 +246,8 @@ namespace catWar
             {
                 if (enemy_soldier[i].get_position() + enemy_soldier[i].getMoveAbility() <= our_front + size && our_soldier.Count != 0)//enough attack range
                 {
+                    if (enemy_soldier[i].get_position() - size > our_front)
+                        enemy_soldier[i].pic.Left = our_front + size;
                     if (enemy_soldier[i].get_cycle() <= (enemy_soldier[i].get_atk_speed() / 2))//let attack image last longer
                     {
                         if (enemy_soldier[i].get_cycle() == 0)
@@ -255,8 +275,10 @@ namespace catWar
                     }
                     enemy_soldier[i].set_cycle(enemy_soldier[i].get_cycle() + 1);
                 }
-                else if(enemy_soldier[i].get_position() + enemy_soldier[i].getMoveAbility() <= 200 && our_soldier.Count == 0)//attack castle
+                else if(enemy_soldier[i].get_position() + enemy_soldier[i].getMoveAbility() <= ourCastleStart + 1 && our_soldier.Count == 0)//attack castle
                 {
+                    if (enemy_soldier[i].get_position() > ourCastleStart + 1)
+                        enemy_soldier[i].pic.Left = ourCastleStart + 1;
                     if (enemy_soldier[i].get_cycle() <= (enemy_soldier[i].get_atk_speed() / 2))
                     {
                         enemy_soldier[i].attack();
@@ -333,7 +355,7 @@ namespace catWar
             {
                 if(r.Next(99999)%(arg*j) == 0)
                 {
-                    Soldier temp = new Soldier(1, j, this);
+                    Soldier temp = new Soldier(1, j, pictureBox3);
                     enemy_soldier.Add(temp);
                     if(mode==5&&arg>50)
                         arg--;
@@ -345,7 +367,7 @@ namespace catWar
 
         private void button6_Click(object sender, EventArgs e)//for test
         {
-            Soldier temp = new Soldier(1, 4, this);
+            Soldier temp = new Soldier(1, 4, pictureBox3);
             enemy_soldier.Add(temp);
         }
     }

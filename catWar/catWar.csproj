@@ -90,6 +90,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="questionDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>questionDataSet1.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Resource1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -157,6 +163,20 @@
     <Content Include="Resources\bg_1.png" />
     <Content Include="Resources\bg_2.png" />
     <Content Include="Resources\bg_3.jpg" />
+    <None Include="questionDataSet1.xsc">
+      <DependentUpon>questionDataSet1.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="questionDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>questionDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="questionDataSet1.xss">
+      <DependentUpon>questionDataSet1.xsd</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\castle_1.png" />
     <None Include="Resources\castle_2.png" />
     <None Include="Resources\castle_3.png" />
@@ -170,6 +190,11 @@
     <None Include="Resources\button3.png" />
     <None Include="Resources\button4.png" />
     <None Include="Resources\button5.png" />
+    <None Include="Resources\button1_hover.png" />
+    <None Include="Resources\button2_hover.png" />
+    <None Include="Resources\button3_hover.png" />
+    <None Include="Resources\button4_hover.png" />
+    <None Include="Resources\button5_hover.png" />
     <Content Include="Resources\enemy_1.gif" />
     <Content Include="Resources\enemy_2.gif" />
     <Content Include="Resources\enemy_3.gif" />
