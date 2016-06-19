@@ -22,17 +22,17 @@ namespace catWar
         private int dfn_ab;      //防禦力
         private int move_ab;   //移動力
         private int cycle = 0; //用來讓攻擊圖案持續久一點
-        public PictureBox pic;
+        public Label pic;
         //public ProgressBar bar; //顯示士兵血量
         private int kind;
         
 
         public Soldier(int arg_side, int level, PictureBox p) 
         {
-            pic = new PictureBox();
+            pic = new Label();
             pic.Size = new Size(100, 100);
             pic.BackColor = Color.Transparent;
-            pic.SizeMode = PictureBoxSizeMode.StretchImage;
+           // pic.SizeMode = PictureBoxSizeMode.StretchImage;
             //bar = new ProgressBar();
             //bar.Size = new Size(100, 10);
             if (arg_side == 0)

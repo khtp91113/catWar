@@ -68,6 +68,7 @@ namespace catWar
 
         public void set_form3_result(bool b) 
         {
+            
             form3_result = b;
             
             if (form3_result == true)
@@ -154,14 +155,12 @@ namespace catWar
                 questionLevel = 5;
             Form3 f3 = new Form3(this);
             f3.ShowDialog();
-            set_form3_result(true);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             for (int i=0; i < our_soldier.Count ; i++)//soldier's moving time
             {
-
                 if (our_soldier[i].get_position() + our_soldier[i].getMoveAbility() + size >= enemy_front && enemy_soldier.Count != 0)//soldier can attack at least one enemy
                 {
                     if(our_soldier[i].get_position() + size < enemy_front)
