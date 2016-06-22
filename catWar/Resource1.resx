@@ -256,18 +256,6 @@
   <data name="button5_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\button5_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="image3342" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\image3342.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="image3343" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\image3343.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="image3344" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\image3344.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="image3345" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\image3345.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ch1attack1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\ch1attack1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -294,5 +282,386 @@
   </data>
   <data name="ch1move4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\ch1move4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch2attack1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch2attack1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch2attack2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch2attack2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch2attack3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch2attack3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch2attack4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch2attack4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch2attack5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch2attack5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch2attack6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch2attack6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch2attack7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch2attack7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch2hold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch2hold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch2move1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch2move1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch2move2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch2move2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch2move3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch2move3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch2move4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch2move4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch3attack1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch3attack1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch3attack2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch3attack2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch3attack3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch3attack3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch3attack4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch3attack4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch3attack5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch3attack5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch3attack6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch3attack6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch3attack7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch3attack7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch3attack8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch3attack8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch3hold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch3hold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch3move1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch3move1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch3move2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch3move2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch3move3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch3move3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch3move4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch3move4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch4attack1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch4attack1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch4attack10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch4attack10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch4attack11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch4attack11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch4attack2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch4attack2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch4attack3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch4attack3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch4attack4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch4attack4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch4attack5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch4attack5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch4attack6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch4attack6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch4attack7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch4attack7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch4attack8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch4attack8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch4attack9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch4attack9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch4hold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch4hold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch4move1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch4move1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch4move2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch4move2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch4move3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch4move3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch4move4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch4move4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch4move5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch4move5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch4move6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch4move6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch5attack1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch5attack1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch5attack10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch5attack10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch5attack11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch5attack11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch5attack12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch5attack12.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch5attack13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch5attack13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch5attack2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch5attack2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch5attack3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch5attack3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch5attack4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch5attack4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch5attack5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch5attack5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch5attack6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch5attack6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch5attack7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch5attack7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch5attack8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch5attack8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch5attack9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch5attack9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch5hold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch5hold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch5move1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch5move1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch5move2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch5move2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch5move3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch5move3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ch5move4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ch5move4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m1attack1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m1attack1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m1attack2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m1attack2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m1attack3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m1attack3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m1attack4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m1attack4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m1attack5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m1attack5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m1hold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m1hold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m1move1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m1move1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m2attack1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m2attack1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m2attack2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m2attack2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m2attack3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m2attack3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m2attack4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m2attack4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m2attack5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m2attack5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m2hold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m2hold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m2move1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m2move1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m3attack1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m3attack1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m3attack2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m3attack2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m3attack3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m3attack3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m3attack4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m3attack4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m3attack5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m3attack5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m3hold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m3hold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m3move1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m3move1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m4attack1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m4attack1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m4attack2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m4attack2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m4attack3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m4attack3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m4attack4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m4attack4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m4attack5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m4attack5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m4hold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m4hold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m4move1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m4move1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m4move2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m4move2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m4move3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m4move3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m5attack1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m5attack1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m5attack2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m5attack2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m5attack3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m5attack3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m5attack4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m5attack4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m5attack5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m5attack5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m5hold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m5hold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m5move1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m5move1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m5move2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m5move2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m5move3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m5move3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m6attack1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m6attack1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m6attack2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m6attack2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m6attack3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m6attack3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m6attack4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m6attack4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m6attack5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m6attack5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m6hold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m6hold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m6move1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m6move1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m6move2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m6move2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m6move3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m6move3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m7attack1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m7attack1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m7attack2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m7attack2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m7attack3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m7attack3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m7attack4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m7attack4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m7attack5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m7attack5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m7hold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m7hold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m7move1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m7move1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m7move2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m7move2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m7move3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m7move3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m8attack1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m8attack1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m8attack2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m8attack2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m8attack3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m8attack3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m8attack4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m8attack4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m8attack5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m8attack5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m8hold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m8hold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m8move1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m8move1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m8move2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m8move2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="m8move3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\m8move3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
