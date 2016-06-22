@@ -195,6 +195,15 @@
     <None Include="Resources\button3_hover.png" />
     <None Include="Resources\button4_hover.png" />
     <None Include="Resources\button5_hover.png" />
+    <None Include="Resources\ch1attack1.png" />
+    <None Include="Resources\ch1attack2.png" />
+    <None Include="Resources\ch1attack3.png" />
+    <None Include="Resources\ch1attack4.png" />
+    <None Include="Resources\ch1hold.png" />
+    <None Include="Resources\ch1move1.png" />
+    <None Include="Resources\ch1move2.png" />
+    <None Include="Resources\ch1move3.png" />
+    <None Include="Resources\ch1move4.png" />
     <Content Include="Resources\enemy_1.gif" />
     <Content Include="Resources\enemy_2.gif" />
     <Content Include="Resources\enemy_3.gif" />
@@ -204,6 +213,10 @@
     <Content Include="Resources\enemy_7.gif" />
     <Content Include="Resources\enemy_8.gif" />
     <None Include="Resources\menu_bg.png" />
+    <None Include="Resources\image3342.png" />
+    <None Include="Resources\image3343.png" />
+    <None Include="Resources\image3344.png" />
+    <None Include="Resources\image3345.png" />
     <Content Include="Resources\our_1.gif" />
     <None Include="Resources\our_1.jpeg" />
     <None Include="Resources\our_1.png" />

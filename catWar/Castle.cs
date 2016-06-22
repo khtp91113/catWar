@@ -11,10 +11,11 @@ namespace catWar
         private int blood = 2000;  //血量
         private ProgressBar bar;
 
-        public Castle(PictureBox p,int side)
+        public Castle(Form2 f,int side)
         {
             bar = new ProgressBar();
-            bar.Parent = p;
+            //bar.Parent = p;
+            bar.Parent = f;
             bar.Maximum = blood;
             bar.Value = blood;
             bar.Width = 136;

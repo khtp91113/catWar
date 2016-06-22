@@ -37,14 +37,15 @@ namespace catWar
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
             ourCastleStart = pictureBox1.Left + pictureBox1.Width - 1;
             enemyCastleStart = pictureBox2.Left + 1;
-            pictureBox1.Parent = pictureBox3;
-            pictureBox2.Parent = pictureBox3;
+            //pictureBox1.Parent = pictureBox3;
+            pictureBox1.Parent = this;
+            //pictureBox2.Parent = pictureBox3;
+            pictureBox2.Parent = this;
             gameResult = 0;
-            our_castle = new Castle(pictureBox3,1);
-            enemy_castle = new Castle(pictureBox3,2);
+            our_castle = new Castle(this,1);
+            enemy_castle = new Castle(this,2);
             DoubleBuffered = true;
             our_soldier = new List<Soldier>();
             enemy_soldier = new List<Soldier>();            
@@ -57,7 +58,7 @@ namespace catWar
             button3.Click += button1_Click;
             button4.Click += button1_Click;
             button5.Click += button1_Click;
-            timer1.Interval = 20;
+            timer1.Interval = 15;
             timer1.Enabled = true;
         }
 
@@ -87,7 +88,9 @@ namespace catWar
                         button_clock[questionLevel] += 350; button5.Enabled = false; button5.BackColor= Color.Black; break;
                 }
 
-                Soldier temp = new Soldier(0, questionLevel, pictureBox3);//generate soldier
+                //Soldier temp = new Soldier(0, questionLevel, pictureBox3);//generate soldier
+                Soldier temp = new Soldier(0, questionLevel);
+                
                 our_soldier.Add(temp);
             }
             else 
@@ -159,8 +162,16 @@ namespace catWar
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            Bitmap canvas = new Bitmap(1200, 700);
+            Graphics gtemp = Graphics.FromImage(canvas);
+            gtemp.DrawImage(Resource1.bg_2, 0, 0, 1200, 700);
+                        
+            Graphics g = Graphics.FromImage(canvas);
+            this.BackgroundImage = canvas;
+            
             for (int i=0; i < our_soldier.Count ; i++)//soldier's moving time
             {
+                our_soldier[i].pic.SizeMode = PictureBoxSizeMode.StretchImage;
                 if (our_soldier[i].get_position() + our_soldier[i].getMoveAbility() + size >= enemy_front && enemy_soldier.Count != 0)//soldier can attack at least one enemy
                 {
                     if(our_soldier[i].get_position() + size < enemy_front)
@@ -168,15 +179,26 @@ namespace catWar
                     
                     if (our_soldier[i].get_cycle() <= (our_soldier[i].get_atk_speed() / 2))//let attack image last longer
                     {
-                        if (our_soldier[i].get_cycle() == 0)//attack
+                        if (our_soldier[i].get_cycle() < 4)//attack
+                        //if(our_soldier[i].get_cycle() % 4)
                         {
-                            our_soldier[i].attack();//change to attack picture
-                            for(int j=0 ; j<enemy_soldier.Count ; j++)//find the enemy whose position will be attacked
+                            Image temp;
+                            switch (our_soldier[i].get_cycle() % 4)
                             {
-                                if(enemy_soldier[j].get_position() == enemy_front)
+                                case 0: temp = Resource1.ch1attack1; break;
+                                case 1: temp = Resource1.ch1attack2; break;
+                                case 2: temp = Resource1.ch1attack3; break;
+                                default: temp = Resource1.ch1attack4; break;
+                            }
+                            g.DrawImage(temp, new Rectangle(new Point(our_soldier[i].get_position(), 368), new Size(100, 100)));
+                            //pictureBox3.Image = canvas;
+                            //our_soldier[i].attack();//change to attack picture
+                            for (int j = 0; j < enemy_soldier.Count; j++)//find the enemy whose position will be attacked
+                            {
+                                if (enemy_soldier[j].get_position() == enemy_front)
                                 {
                                     enemy_soldier[j].attacked(our_soldier[i].getAttackPower() - enemy_soldier[j].get_defense());//enemy lose health
-                                    if(enemy_soldier[j].is_dead())
+                                    if (enemy_soldier[j].is_dead())
                                     {
                                         enemy_soldier[j] = null;
                                         enemy_soldier.RemoveAt(j);
@@ -185,10 +207,18 @@ namespace catWar
                                 }
                             }
                         }
+                        else
+                        {
+                            Image temp = Resource1.ch1attack1;
+                            
+                            g.DrawImage(temp, new Rectangle(new Point(our_soldier[i].get_position(), 368), new Size(100, 100)));
+                        }
                     }
                     else//between attack interval
                     {
                         our_soldier[i].hold();//change picture to stand freeze
+                        Image temp = Resource1.ch1attack1;
+                        g.DrawImage(temp, new Rectangle(new Point(our_soldier[i].get_position(), 368), new Size(100, 100)));
                     }
                     our_soldier[i].set_cycle(our_soldier[i].get_cycle() + 1);
                 }
@@ -199,6 +229,24 @@ namespace catWar
 
                     if (our_soldier[i].get_cycle() <= (our_soldier[i].get_atk_speed() / 2))//let attack image last longer
                     {
+                        if (our_soldier[i].get_cycle() < 4)//attack
+                        {
+                            Image tem;
+                            switch (our_soldier[i].get_cycle() % 4)
+                            {
+                                case 0: tem = Resource1.ch1attack1; break;
+                                case 1: tem = Resource1.ch1attack2; break;
+                                case 2: tem = Resource1.ch1attack3; break;
+                                default: tem = Resource1.ch1attack4; break;
+                            }
+                            g.DrawImage(tem, new Rectangle(new Point(our_soldier[i].get_position(), 368), new Size(100, 100)));
+                        }
+                        else
+                        {
+                            Image temp = Resource1.ch1attack1;
+
+                            g.DrawImage(temp, new Rectangle(new Point(our_soldier[i].get_position(), 368), new Size(100, 100)));
+                        }
                         our_soldier[i].attack();
                         
                         if (our_soldier[i].get_cycle() == 0 && mode != 5)//enemy castle lose health
@@ -206,7 +254,8 @@ namespace catWar
 
                         if (our_soldier[i].get_cycle() == 0 && mode == 5)//enemy castle lose health
                         {
-                            Soldier temp = new Soldier(1, 8, pictureBox3);
+                            //Soldier temp = new Soldier(1, 8, pictureBox3);
+                            Soldier temp = new Soldier(1, 8);
                             enemy_soldier.Add(temp);
                         }
                         if(enemy_castle.is_dead()&&mode!=5)//destroy enemy castle, win
@@ -219,17 +268,33 @@ namespace catWar
                     else//between attack interval
                     {
                         our_soldier[i].hold();
+                        {
+                            Image temp = Resource1.ch1attack1;
+
+                            g.DrawImage(temp, new Rectangle(new Point(our_soldier[i].get_position(), 368), new Size(100, 100)));
+                        }
                     }
                     our_soldier[i].set_cycle(our_soldier[i].get_cycle() + 1);
                 }
                 else//not enough attack range, move
                 {
                     our_soldier[i].move();
-                    our_soldier[i].set_cycle(0);
+                    our_soldier[i].set_cycle(our_soldier[i].get_cycle()+1);
                     our_soldier[i].pic.Left += our_soldier[i].getMoveAbility();//move soldier
                     //our_soldier[i].bar.Left = our_soldier[i].pic.Left;
                     our_soldier[i].set_position(our_soldier[i].get_position() + our_soldier[i].getMoveAbility());//update solier's position value
                     set_our_front();//update first soldier's location
+                    Image temp;
+                    if (our_soldier[i].get_cycle() % 4 ==1)
+                        temp = Resource1.ch1move1;
+                    else if (our_soldier[i].get_cycle() % 4 ==2)
+                        temp = Resource1.ch1move2;
+                    else if (our_soldier[i].get_cycle() % 4 == 3)
+                        temp = Resource1.ch1move3;
+                    else
+                        temp = Resource1.ch1move4;
+                    g.DrawImage(temp, new Rectangle(new Point(our_soldier[i].get_position(), 368), new Size(100, 100)));
+                    //pictureBox3.Image = canvas;
                 }
             }
             if(gameResult == 1)
@@ -354,7 +419,8 @@ namespace catWar
             {
                 if(r.Next(99999)%(arg*j) == 0)
                 {
-                    Soldier temp = new Soldier(1, j, pictureBox3);
+                    //Soldier temp = new Soldier(1, j, pictureBox3);
+                    Soldier temp = new Soldier(1, j);
                     enemy_soldier.Add(temp);
                     if(mode==5&&arg>50)
                         arg--;
@@ -366,8 +432,10 @@ namespace catWar
 
         private void button6_Click(object sender, EventArgs e)//for test
         {
-            Soldier temp = new Soldier(1, 4, pictureBox3);
+            //Soldier temp = new Soldier(1, 4, pictureBox3);
+            Soldier temp = new Soldier(1, 4);
             enemy_soldier.Add(temp);
         }
+
     }
 }
