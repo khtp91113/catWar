@@ -833,6 +833,26 @@ namespace catWar {
         /// <summary>
         ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
         /// </summary>
+        internal static System.Drawing.Bitmap ch5attack14 {
+            get {
+                object obj = ResourceManager.GetObject("ch5attack14", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Bitmap ch5attack15 {
+            get {
+                object obj = ResourceManager.GetObject("ch5attack15", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類型 System.Drawing.Bitmap 的當地語系化資源。
+        /// </summary>
         internal static System.Drawing.Bitmap ch5attack2 {
             get {
                 object obj = ResourceManager.GetObject("ch5attack2", resourceCulture);

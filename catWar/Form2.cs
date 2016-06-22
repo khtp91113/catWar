@@ -171,27 +171,91 @@ namespace catWar
             
             for (int i=0; i < our_soldier.Count ; i++)//soldier's moving time
             {
-                our_soldier[i].pic.SizeMode = PictureBoxSizeMode.StretchImage;
                 if (our_soldier[i].get_position() + our_soldier[i].getMoveAbility() + size >= enemy_front && enemy_soldier.Count != 0)//soldier can attack at least one enemy
                 {
-                    if(our_soldier[i].get_position() + size < enemy_front)
-                        our_soldier[i].pic.Left = enemy_front - size;
+                    //if(our_soldier[i].get_position() + size < enemy_front)
+                    //    our_soldier[i].pic.Left = enemy_front - size;
                     
-                    if (our_soldier[i].get_cycle() <= (our_soldier[i].get_atk_speed() / 2))//let attack image last longer
+                    if (our_soldier[i].get_cycle() <= our_soldier[i].get_atk_speed())//let attack image last longer
                     {
-                        if (our_soldier[i].get_cycle() < 4)//attack
-                        //if(our_soldier[i].get_cycle() % 4)
+                        if (our_soldier[i].get_cycle() < our_soldier[i].getAtkFrame())//attack
                         {
                             Image temp;
-                            switch (our_soldier[i].get_cycle() % 4)
+                            if(our_soldier[i].getKind() == 1)
                             {
-                                case 0: temp = Resource1.ch1attack1; break;
-                                case 1: temp = Resource1.ch1attack2; break;
-                                case 2: temp = Resource1.ch1attack3; break;
-                                default: temp = Resource1.ch1attack4; break;
+                                switch (our_soldier[i].get_cycle() % 4)
+                                {
+                                    case 0: temp = Resource1.ch1attack1; break;
+                                    case 1: temp = Resource1.ch1attack2; break;
+                                    case 2: temp = Resource1.ch1attack3; break;
+                                    default: temp = Resource1.ch1attack4; break;
+                                }
                             }
+                            else if (our_soldier[i].getKind() == 2)
+                            {
+                                switch (our_soldier[i].get_cycle() % 7)
+                                {
+                                    case 0: temp = Resource1.ch2attack1; break;
+                                    case 1: temp = Resource1.ch2attack2; break;
+                                    case 2: temp = Resource1.ch2attack3; break;
+                                    case 3: temp = Resource1.ch2attack4; break;
+                                    case 4: temp = Resource1.ch2attack5; break;
+                                    case 5: temp = Resource1.ch2attack6; break;
+                                    default: temp = Resource1.ch2attack7; break;
+                                }
+                            }
+                            else if (our_soldier[i].getKind() == 3)
+                            {
+                                switch (our_soldier[i].get_cycle() % 8)
+                                {
+                                    case 0: temp = Resource1.ch3attack1; break;
+                                    case 1: temp = Resource1.ch3attack2; break;
+                                    case 2: temp = Resource1.ch3attack3; break;
+                                    case 3: temp = Resource1.ch3attack4; break;
+                                    case 4: temp = Resource1.ch3attack5; break;
+                                    case 5: temp = Resource1.ch3attack6; break;
+                                    case 6: temp = Resource1.ch3attack7; break;
+                                    default: temp = Resource1.ch3attack8; break;
+                                }
+                            }
+                            else if (our_soldier[i].getKind() == 4)
+                            {
+                                switch (our_soldier[i].get_cycle() % 9)
+                                {
+                                    case 0: temp = Resource1.ch4attack1; break;
+                                    case 1: temp = Resource1.ch4attack2; break;
+                                    case 2: temp = Resource1.ch4attack3; break;
+                                    case 3: temp = Resource1.ch4attack4; break;
+                                    case 4: temp = Resource1.ch4attack5; break;
+                                    case 5: temp = Resource1.ch4attack6; break;
+                                    case 6: temp = Resource1.ch4attack7; break;
+                                    case 7: temp = Resource1.ch4attack8; break;
+                                    default: temp = Resource1.ch4attack9; break;
+                                }
+                            }
+                            else
+                            {
+                                switch (our_soldier[i].get_cycle() % 9)
+                                {
+                                    case 0: temp = Resource1.ch5attack1; break;
+                                    case 1: temp = Resource1.ch5attack2; break;
+                                    case 2: temp = Resource1.ch5attack3; break;
+                                    case 3: temp = Resource1.ch5attack4; break;
+                                    case 4: temp = Resource1.ch5attack5; break;
+                                    case 5: temp = Resource1.ch5attack6; break;
+                                    case 6: temp = Resource1.ch5attack7; break;
+                                    case 7: temp = Resource1.ch5attack8; break;
+                                    case 8: temp = Resource1.ch5attack9; break;
+                                    case 9: temp = Resource1.ch5attack10; break;
+                                    case 10: temp = Resource1.ch5attack11; break;
+                                    case 11: temp = Resource1.ch5attack12; break;
+                                    case 12: temp = Resource1.ch5attack13; break;
+                                    case 13: temp = Resource1.ch5attack14; break;
+                                    default: temp = Resource1.ch5attack15; break;
+                                }
+                            }
+                            
                             g.DrawImage(temp, new Rectangle(new Point(our_soldier[i].get_position(), 368), new Size(100, 100)));
-                            //pictureBox3.Image = canvas;
                             //our_soldier[i].attack();//change to attack picture
                             for (int j = 0; j < enemy_soldier.Count; j++)//find the enemy whose position will be attacked
                             {
@@ -209,42 +273,114 @@ namespace catWar
                         }
                         else
                         {
-                            Image temp = Resource1.ch1attack1;
-                            
+                            Image temp;
+                            switch (our_soldier[i].getKind())
+                            {
+                                case 1: temp = Resource1.ch1attack1; break;
+                                case 2: temp = Resource1.ch2attack1; break;
+                                case 3: temp = Resource1.ch3attack1; break;
+                                case 4: temp = Resource1.ch4attack1; break;
+                                default: temp = Resource1.ch5attack1; break;
+                            }
                             g.DrawImage(temp, new Rectangle(new Point(our_soldier[i].get_position(), 368), new Size(100, 100)));
                         }
-                    }
-                    else//between attack interval
-                    {
-                        our_soldier[i].hold();//change picture to stand freeze
-                        Image temp = Resource1.ch1attack1;
-                        g.DrawImage(temp, new Rectangle(new Point(our_soldier[i].get_position(), 368), new Size(100, 100)));
                     }
                     our_soldier[i].set_cycle(our_soldier[i].get_cycle() + 1);
                 }
                 else if(our_soldier[i].get_position() + our_soldier[i].getMoveAbility() + size >= enemyCastleStart - 1 && enemy_soldier.Count == 0)//get to enemy castle and there's no enemy, attack castle
                 {
-                    if(our_soldier[i].get_position() + size < enemyCastleStart - 1)
-                        our_soldier[i].pic.Left = enemyCastleStart - 2 - size;
-
-                    if (our_soldier[i].get_cycle() <= (our_soldier[i].get_atk_speed() / 2))//let attack image last longer
+                    if (our_soldier[i].get_cycle() <= our_soldier[i].get_atk_speed())//let attack image last longer
                     {
-                        if (our_soldier[i].get_cycle() < 4)//attack
+                        if (our_soldier[i].get_cycle() <= our_soldier[i].getAtkFrame())//attack
                         {
-                            Image tem;
-                            switch (our_soldier[i].get_cycle() % 4)
+                            Image temp;
+                            if (our_soldier[i].getKind() == 1)
                             {
-                                case 0: tem = Resource1.ch1attack1; break;
-                                case 1: tem = Resource1.ch1attack2; break;
-                                case 2: tem = Resource1.ch1attack3; break;
-                                default: tem = Resource1.ch1attack4; break;
+                                switch (our_soldier[i].get_cycle() % 4)
+                                {
+                                    case 0: temp = Resource1.ch1attack1; break;
+                                    case 1: temp = Resource1.ch1attack2; break;
+                                    case 2: temp = Resource1.ch1attack3; break;
+                                    default: temp = Resource1.ch1attack4; break;
+                                }
                             }
-                            g.DrawImage(tem, new Rectangle(new Point(our_soldier[i].get_position(), 368), new Size(100, 100)));
+                            else if (our_soldier[i].getKind() == 2)
+                            {
+                                switch (our_soldier[i].get_cycle() % 7)
+                                {
+                                    case 0: temp = Resource1.ch2attack1; break;
+                                    case 1: temp = Resource1.ch2attack2; break;
+                                    case 2: temp = Resource1.ch2attack3; break;
+                                    case 3: temp = Resource1.ch2attack4; break;
+                                    case 4: temp = Resource1.ch2attack5; break;
+                                    case 5: temp = Resource1.ch2attack6; break;
+                                    default: temp = Resource1.ch2attack7; break;
+                                }
+                            }
+                            else if (our_soldier[i].getKind() == 3)
+                            {
+                                switch (our_soldier[i].get_cycle() % 8)
+                                {
+                                    case 0: temp = Resource1.ch3attack1; break;
+                                    case 1: temp = Resource1.ch3attack2; break;
+                                    case 2: temp = Resource1.ch3attack3; break;
+                                    case 3: temp = Resource1.ch3attack4; break;
+                                    case 4: temp = Resource1.ch3attack5; break;
+                                    case 5: temp = Resource1.ch3attack6; break;
+                                    case 6: temp = Resource1.ch3attack7; break;
+                                    default: temp = Resource1.ch3attack8; break;
+                                }
+                            }
+                            else if (our_soldier[i].getKind() == 4)
+                            {
+                                switch (our_soldier[i].get_cycle() % 9)
+                                {
+                                    case 0: temp = Resource1.ch4attack1; break;
+                                    case 1: temp = Resource1.ch4attack2; break;
+                                    case 2: temp = Resource1.ch4attack3; break;
+                                    case 3: temp = Resource1.ch4attack4; break;
+                                    case 4: temp = Resource1.ch4attack5; break;
+                                    case 5: temp = Resource1.ch4attack6; break;
+                                    case 6: temp = Resource1.ch4attack7; break;
+                                    case 7: temp = Resource1.ch4attack8; break;
+                                    default: temp = Resource1.ch4attack9; break;
+                                }
+                                Console.WriteLine(our_soldier[i].get_cycle() % 9);
+                            }
+                            else
+                            {
+                                switch (our_soldier[i].get_cycle() % 9)
+                                {
+                                    case 0: temp = Resource1.ch5attack1; break;
+                                    case 1: temp = Resource1.ch5attack2; break;
+                                    case 2: temp = Resource1.ch5attack3; break;
+                                    case 3: temp = Resource1.ch5attack4; break;
+                                    case 4: temp = Resource1.ch5attack5; break;
+                                    case 5: temp = Resource1.ch5attack6; break;
+                                    case 6: temp = Resource1.ch5attack7; break;
+                                    case 7: temp = Resource1.ch5attack8; break;
+                                    case 8: temp = Resource1.ch5attack9; break;
+                                    case 9: temp = Resource1.ch5attack10; break;
+                                    case 10: temp = Resource1.ch5attack11; break;
+                                    case 11: temp = Resource1.ch5attack12; break;
+                                    case 12: temp = Resource1.ch5attack13; break;
+                                    case 13: temp = Resource1.ch5attack14; break;
+                                    default: temp = Resource1.ch5attack15; break;
+                                }
+                            }
+                            g.DrawImage(temp, new Rectangle(new Point(our_soldier[i].get_position(), 368), new Size(100, 100)));
                         }
                         else
                         {
-                            Image temp = Resource1.ch1attack1;
-
+                            Image temp;
+                            switch (our_soldier[i].getKind())
+                            {
+                                case 1: temp = Resource1.ch1attack1; break;
+                                case 2: temp = Resource1.ch2attack1; break;
+                                case 3: temp = Resource1.ch3attack1; break;
+                                case 4: temp = Resource1.ch4attack1; break;
+                                default: temp = Resource1.ch5attack1; break;
+                            }
                             g.DrawImage(temp, new Rectangle(new Point(our_soldier[i].get_position(), 368), new Size(100, 100)));
                         }
                         our_soldier[i].attack();
@@ -254,7 +390,6 @@ namespace catWar
 
                         if (our_soldier[i].get_cycle() == 0 && mode == 5)//enemy castle lose health
                         {
-                            //Soldier temp = new Soldier(1, 8, pictureBox3);
                             Soldier temp = new Soldier(1, 8);
                             enemy_soldier.Add(temp);
                         }
@@ -265,36 +400,69 @@ namespace catWar
                             break;
                         }
                     }
-                    else//between attack interval
-                    {
-                        our_soldier[i].hold();
-                        {
-                            Image temp = Resource1.ch1attack1;
-
-                            g.DrawImage(temp, new Rectangle(new Point(our_soldier[i].get_position(), 368), new Size(100, 100)));
-                        }
-                    }
                     our_soldier[i].set_cycle(our_soldier[i].get_cycle() + 1);
                 }
                 else//not enough attack range, move
                 {
                     our_soldier[i].move();
                     our_soldier[i].set_cycle(our_soldier[i].get_cycle()+1);
-                    our_soldier[i].pic.Left += our_soldier[i].getMoveAbility();//move soldier
                     //our_soldier[i].bar.Left = our_soldier[i].pic.Left;
                     our_soldier[i].set_position(our_soldier[i].get_position() + our_soldier[i].getMoveAbility());//update solier's position value
                     set_our_front();//update first soldier's location
                     Image temp;
-                    if (our_soldier[i].get_cycle() % 4 ==1)
-                        temp = Resource1.ch1move1;
-                    else if (our_soldier[i].get_cycle() % 4 ==2)
-                        temp = Resource1.ch1move2;
-                    else if (our_soldier[i].get_cycle() % 4 == 3)
-                        temp = Resource1.ch1move3;
+                    if(our_soldier[i].getKind() == 1)
+                    {
+                        switch(our_soldier[i].get_cycle() % our_soldier[i].getMoveFrame())
+                        {
+                            case 0: temp = Resource1.ch1move1; break;
+                            case 1: temp = Resource1.ch1move2; break;
+                            case 2: temp = Resource1.ch1move3; break;
+                            default: temp = Resource1.ch1move4; break;
+                        }
+                    }
+                    else if (our_soldier[i].getKind() == 2)
+                    {
+                        switch (our_soldier[i].get_cycle() % our_soldier[i].getMoveFrame())
+                        {
+                            case 0: temp = Resource1.ch2move1; break;
+                            case 1: temp = Resource1.ch2move2; break;
+                            case 2: temp = Resource1.ch2move3; break;
+                            default: temp = Resource1.ch2move4; break;
+                        }
+                    }
+                    else if (our_soldier[i].getKind() == 3)
+                    {
+                        switch (our_soldier[i].get_cycle() % our_soldier[i].getMoveFrame())
+                        {
+                            case 0: temp = Resource1.ch3move1; break;
+                            case 1: temp = Resource1.ch3move2; break;
+                            case 2: temp = Resource1.ch3move3; break;
+                            default: temp = Resource1.ch3move4; break;
+                        }
+                    }
+                    else if (our_soldier[i].getKind() == 4)
+                    {
+                        switch (our_soldier[i].get_cycle() % our_soldier[i].getMoveFrame())
+                        {
+                            case 0: temp = Resource1.ch4move1; break;
+                            case 1: temp = Resource1.ch4move2; break;
+                            case 2: temp = Resource1.ch4move3; break;
+                            case 3: temp = Resource1.ch4move4; break;
+                            case 4: temp = Resource1.ch4move5; break;
+                            default: temp = Resource1.ch4move6; break;
+                        }
+                    }
                     else
-                        temp = Resource1.ch1move4;
+                    {
+                        switch (our_soldier[i].get_cycle() % our_soldier[i].getMoveFrame())
+                        {
+                            case 0: temp = Resource1.ch5move1; break;
+                            case 1: temp = Resource1.ch5move2; break;
+                            case 2: temp = Resource1.ch5move3; break;
+                            default: temp = Resource1.ch5move4; break;
+                        }
+                    }
                     g.DrawImage(temp, new Rectangle(new Point(our_soldier[i].get_position(), 368), new Size(100, 100)));
-                    //pictureBox3.Image = canvas;
                 }
             }
             if(gameResult == 1)
@@ -310,12 +478,103 @@ namespace catWar
             {
                 if (enemy_soldier[i].get_position() + enemy_soldier[i].getMoveAbility() <= our_front + size && our_soldier.Count != 0)//enough attack range
                 {
-                    if (enemy_soldier[i].get_position() - size > our_front)
-                        enemy_soldier[i].pic.Left = our_front + size;
-                    if (enemy_soldier[i].get_cycle() <= (enemy_soldier[i].get_atk_speed() / 2))//let attack image last longer
+                    if (enemy_soldier[i].get_cycle() <= enemy_soldier[i].get_atk_speed())//let attack image last longer
                     {
-                        if (enemy_soldier[i].get_cycle() == 0)
+                        if (enemy_soldier[i].get_cycle() < enemy_soldier[i].getAtkFrame())
                         {
+                            Image temp;
+                            if (enemy_soldier[i].getKind() == 6)
+                            {
+                                switch (enemy_soldier[i].get_cycle() % 5)
+                                {
+                                    case 0: temp = Resource1.m1attack1; break;
+                                    case 1: temp = Resource1.m1attack2; break;
+                                    case 2: temp = Resource1.m1attack3; break;
+                                    case 3: temp = Resource1.m1attack4; break;
+                                    default: temp = Resource1.m1attack5; break;
+                                }
+                            }
+                            else if (enemy_soldier[i].getKind() == 7)
+                            {
+                                switch (enemy_soldier[i].get_cycle() % 5)
+                                {
+                                    case 0: temp = Resource1.m2attack1; break;
+                                    case 1: temp = Resource1.m2attack2; break;
+                                    case 2: temp = Resource1.m2attack3; break;
+                                    case 3: temp = Resource1.m2attack4; break;
+                                    default: temp = Resource1.m2attack5; break;
+                                }
+                            }
+                            else if (enemy_soldier[i].getKind() == 8)
+                            {
+                                switch (enemy_soldier[i].get_cycle() % 5)
+                                {
+                                    case 0: temp = Resource1.m3attack1; break;
+                                    case 1: temp = Resource1.m3attack2; break;
+                                    case 2: temp = Resource1.m3attack3; break;
+                                    case 3: temp = Resource1.m3attack4; break;
+                                    default: temp = Resource1.m3attack5; break;
+                                }
+                            }
+                            else if (enemy_soldier[i].getKind() == 9)
+                            {
+                                switch (enemy_soldier[i].get_cycle() % 5)
+                                {
+                                    case 0: temp = Resource1.m4attack1; break;
+                                    case 1: temp = Resource1.m4attack2; break;
+                                    case 2: temp = Resource1.m4attack3; break;
+                                    case 3: temp = Resource1.m4attack4; break;
+                                    default: temp = Resource1.m4attack5; break;
+                                }
+                            }
+                            else if (enemy_soldier[i].getKind() == 10)
+                            {
+                                switch (enemy_soldier[i].get_cycle() % 5)
+                                {
+                                    case 0: temp = Resource1.m5attack1; break;
+                                    case 1: temp = Resource1.m5attack2; break;
+                                    case 2: temp = Resource1.m5attack3; break;
+                                    case 3: temp = Resource1.m5attack4; break;
+                                    default: temp = Resource1.m5attack5; break;
+                                }
+                            }
+                            else if (enemy_soldier[i].getKind() == 6)
+                            {
+                                switch (enemy_soldier[i].get_cycle() % 5)
+                                {
+                                    case 0: temp = Resource1.m6attack1; break;
+                                    case 1: temp = Resource1.m6attack2; break;
+                                    case 2: temp = Resource1.m6attack3; break;
+                                    case 3: temp = Resource1.m6attack4; break;
+                                    default: temp = Resource1.m6attack5; break;
+                                }
+                            }
+                            else if (enemy_soldier[i].getKind() == 7)
+                            {
+                                switch (enemy_soldier[i].get_cycle() % 5)
+                                {
+                                    case 0: temp = Resource1.m7attack1; break;
+                                    case 1: temp = Resource1.m7attack2; break;
+                                    case 2: temp = Resource1.m7attack3; break;
+                                    case 3: temp = Resource1.m7attack4; break;
+                                    default: temp = Resource1.m7attack5; break;
+                                }
+                            }
+                            else
+                            {
+                                switch (enemy_soldier[i].get_cycle() % 5)
+                                {
+                                    case 0: temp = Resource1.m8attack1; break;
+                                    case 1: temp = Resource1.m8attack2; break;
+                                    case 2: temp = Resource1.m8attack3; break;
+                                    case 3: temp = Resource1.m8attack4; break;
+                                    default: temp = Resource1.m8attack5; break;
+                                }
+                            }
+
+                            g.DrawImage(temp, new Rectangle(new Point(enemy_soldier[i].get_position(), 368), new Size(100, 100)));
+
+
                             enemy_soldier[i].attack();
                             for (int j = 0; j < our_soldier.Count; j++)
                             {
@@ -331,20 +590,144 @@ namespace catWar
                                 }
                             }
                         }
-                            
+                        else
+                        {
+                            Image temp;
+                            switch (enemy_soldier[i].getKind())
+                            {
+                                case 6: temp = Resource1.m1attack1; break;
+                                case 7: temp = Resource1.m2attack1; break;
+                                case 8: temp = Resource1.m3attack1; break;
+                                case 9: temp = Resource1.m4attack1; break;
+                                case 10: temp = Resource1.m5attack1; break;
+                                case 11: temp = Resource1.m6attack1; break;
+                                case 12: temp = Resource1.m7attack1; break;
+                                default: temp = Resource1.m8attack1; break;
+                            }
+                            g.DrawImage(temp, new Rectangle(new Point(enemy_soldier[i].get_position(), 368), new Size(100, 100)));
+                        }
                     }
-                    else//between attack interval
+                    /*else//between attack interval
                     {
                         enemy_soldier[i].hold();
-                    }
+                    }*/
                     enemy_soldier[i].set_cycle(enemy_soldier[i].get_cycle() + 1);
                 }
                 else if(enemy_soldier[i].get_position() + enemy_soldier[i].getMoveAbility() <= ourCastleStart + 1 && our_soldier.Count == 0)//attack castle
                 {
-                    if (enemy_soldier[i].get_position() > ourCastleStart + 1)
-                        enemy_soldier[i].pic.Left = ourCastleStart + 1;
-                    if (enemy_soldier[i].get_cycle() <= (enemy_soldier[i].get_atk_speed() / 2))
+                   // if (enemy_soldier[i].get_position() > ourCastleStart + 1)
+                     //   enemy_soldier[i].pic.Left = ourCastleStart + 1;
+                    if (enemy_soldier[i].get_cycle() <= enemy_soldier[i].get_atk_speed())
                     {
+                        if(enemy_soldier[i].get_cycle() <= enemy_soldier[i].getAtkFrame())
+                        {
+                            Image temp;
+                            if (enemy_soldier[i].getKind() == 6)
+                            {
+                                switch (enemy_soldier[i].get_cycle() % 5)
+                                {
+                                    case 0: temp = Resource1.m1attack1; break;
+                                    case 1: temp = Resource1.m1attack2; break;
+                                    case 2: temp = Resource1.m1attack3; break;
+                                    case 3: temp = Resource1.m1attack4; break;
+                                    default: temp = Resource1.m1attack5; break;
+                                }
+                            }
+                            else if (enemy_soldier[i].getKind() == 7)
+                            {
+                                switch (enemy_soldier[i].get_cycle() % 5)
+                                {
+                                    case 0: temp = Resource1.m2attack1; break;
+                                    case 1: temp = Resource1.m2attack2; break;
+                                    case 2: temp = Resource1.m2attack3; break;
+                                    case 3: temp = Resource1.m2attack4; break;
+                                    default: temp = Resource1.m2attack5; break;
+                                }
+                            }
+                            else if (enemy_soldier[i].getKind() == 8)
+                            {
+                                switch (enemy_soldier[i].get_cycle() % 5)
+                                {
+                                    case 0: temp = Resource1.m3attack1; break;
+                                    case 1: temp = Resource1.m3attack2; break;
+                                    case 2: temp = Resource1.m3attack3; break;
+                                    case 3: temp = Resource1.m3attack4; break;
+                                    default: temp = Resource1.m3attack5; break;
+                                }
+                            }
+                            else if (enemy_soldier[i].getKind() == 9)
+                            {
+                                switch (enemy_soldier[i].get_cycle() % 5)
+                                {
+                                    case 0: temp = Resource1.m4attack1; break;
+                                    case 1: temp = Resource1.m4attack2; break;
+                                    case 2: temp = Resource1.m4attack3; break;
+                                    case 3: temp = Resource1.m4attack4; break;
+                                    default: temp = Resource1.m4attack5; break;
+                                }
+                            }
+                            else if (enemy_soldier[i].getKind() == 10)
+                            {
+                                switch (enemy_soldier[i].get_cycle() % 5)
+                                {
+                                    case 0: temp = Resource1.m5attack1; break;
+                                    case 1: temp = Resource1.m5attack2; break;
+                                    case 2: temp = Resource1.m5attack3; break;
+                                    case 3: temp = Resource1.m5attack4; break;
+                                    default: temp = Resource1.m5attack5; break;
+                                }
+                            }
+                            else if (enemy_soldier[i].getKind() == 11)
+                            {
+                                switch (enemy_soldier[i].get_cycle() % 5)
+                                {
+                                    case 0: temp = Resource1.m6attack1; break;
+                                    case 1: temp = Resource1.m6attack2; break;
+                                    case 2: temp = Resource1.m6attack3; break;
+                                    case 3: temp = Resource1.m6attack4; break;
+                                    default: temp = Resource1.m6attack5; break;
+                                }
+                            }
+                            else if (enemy_soldier[i].getKind() == 12)
+                            {
+                                switch (enemy_soldier[i].get_cycle() % 5)
+                                {
+                                    case 0: temp = Resource1.m7attack1; break;
+                                    case 1: temp = Resource1.m7attack2; break;
+                                    case 2: temp = Resource1.m7attack3; break;
+                                    case 3: temp = Resource1.m7attack4; break;
+                                    default: temp = Resource1.m7attack5; break;
+                                }
+                            }
+                            else
+                            {
+                                switch (enemy_soldier[i].get_cycle() % 5)
+                                {
+                                    case 0: temp = Resource1.m8attack1; break;
+                                    case 1: temp = Resource1.m8attack2; break;
+                                    case 2: temp = Resource1.m8attack3; break;
+                                    case 3: temp = Resource1.m8attack4; break;
+                                    default: temp = Resource1.m8attack5; break;
+                                }
+                            }
+                            g.DrawImage(temp, new Rectangle(new Point(enemy_soldier[i].get_position(), 368), new Size(100, 100)));
+                        }
+                        else
+                        {
+                            Image temp;
+                            switch (enemy_soldier[i].getKind())
+                            {
+                                case 6: temp = Resource1.m1attack1; break;
+                                case 7: temp = Resource1.m2attack1; break;
+                                case 8: temp = Resource1.m3attack1; break;
+                                case 9: temp = Resource1.m4attack1; break;
+                                case 10: temp = Resource1.m5attack1; break;
+                                case 11: temp = Resource1.m6attack1; break;
+                                case 12: temp = Resource1.m7attack1; break;
+                                default: temp = Resource1.m8attack1; break;
+                            }
+                            g.DrawImage(temp, new Rectangle(new Point(enemy_soldier[i].get_position(), 368), new Size(100, 100)));
+                        }
                         enemy_soldier[i].attack();
                         
                         if(enemy_soldier[i].get_cycle() == 0)
@@ -366,11 +749,70 @@ namespace catWar
                 else//not enough attack range , move
                 {
                     enemy_soldier[i].move();
-                    enemy_soldier[i].set_cycle(0);
-                    enemy_soldier[i].pic.Left += enemy_soldier[i].getMoveAbility();
+                    enemy_soldier[i].set_cycle(enemy_soldier[i].get_cycle() + 1);
                     //enemy_soldier[i].bar.Left = enemy_soldier[i].pic.Left;
                     enemy_soldier[i].set_position(enemy_soldier[i].get_position() + enemy_soldier[i].getMoveAbility());
                     set_enemy_front();
+                    Image temp;
+                    if (enemy_soldier[i].getKind() == 6)
+                    {
+                        temp = Resource1.m1move1;
+                    }
+                    else if (enemy_soldier[i].getKind() == 7)
+                    {
+                        temp = Resource1.m2move1;
+                    }
+                    else if (enemy_soldier[i].getKind() == 8)
+                    {
+                        temp = Resource1.m3move1;
+                    }
+                    else if (enemy_soldier[i].getKind() == 9)
+                    {
+                        Console.WriteLine(enemy_soldier[i].get_cycle());
+                        switch (enemy_soldier[i].get_cycle() % enemy_soldier[i].getMoveFrame())
+                        {
+                            case 0: temp = Resource1.m4move1; break;
+                            case 1: temp = Resource1.m4move2; break;
+                            default: temp = Resource1.m4move3; break;
+                        }
+                    }
+                    else if (enemy_soldier[i].getKind() == 10)
+                    {
+                        switch (enemy_soldier[i].get_cycle() % enemy_soldier[i].getMoveFrame())
+                        {
+                            case 0: temp = Resource1.m5move1; break;
+                            case 1: temp = Resource1.m5move2; break;
+                            default: temp = Resource1.m5move3; break;
+                        }
+                    }
+                    else if (enemy_soldier[i].getKind() == 11)
+                    {
+                        switch (enemy_soldier[i].get_cycle() % enemy_soldier[i].getMoveFrame())
+                        {
+                            case 0: temp = Resource1.m6move1; break;
+                            case 1: temp = Resource1.m6move2; break;
+                            default: temp = Resource1.m6move3; break;
+                        }
+                    }
+                    else if (enemy_soldier[i].getKind() == 12)
+                    {
+                        switch (enemy_soldier[i].get_cycle() % enemy_soldier[i].getMoveFrame())
+                        {
+                            case 0: temp = Resource1.m7move1; break;
+                            case 1: temp = Resource1.m7move2; break;
+                            default: temp = Resource1.m7move3; break;
+                        }
+                    }
+                    else
+                    {
+                        switch (enemy_soldier[i].get_cycle() % enemy_soldier[i].getMoveFrame())
+                        {
+                            case 0: temp = Resource1.m4move1; break;
+                            case 1: temp = Resource1.m4move2; break;
+                            default: temp = Resource1.m4move3; break;
+                        }
+                    }
+                    g.DrawImage(temp, new Rectangle(new Point(enemy_soldier[i].get_position(), 368), new Size(100, 100)));
                 }
 
             }
@@ -382,6 +824,12 @@ namespace catWar
                     this.Close();
                 }
             }
+
+            button1.Enabled = true;
+            button2.Enabled = true;
+            button3.Enabled = true;
+            button4.Enabled = true;
+            button5.Enabled = true;
 
             for (int i = 1; i < 6; i++)
             {

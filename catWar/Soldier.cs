@@ -22,7 +22,8 @@ namespace catWar
         private int dfn_ab;      //防禦力
         private int move_ab;   //移動力
         private int cycle = 0; //用來讓攻擊圖案持續久一點
-        public PictureBox pic;
+        private int atkFrame;
+        private int moveFrame;
         //public ProgressBar bar; //顯示士兵血量
         private int kind;
         private int parent;
@@ -30,52 +31,16 @@ namespace catWar
         public Soldier(int arg_side, int level) 
         {
             parent = -1;
-            pic = new PictureBox();
-            pic.Size = new Size(100, 100);
-            pic.BackColor = Color.Transparent;
-           // pic.SizeMode = PictureBoxSizeMode.StretchImage;
-            //bar = new ProgressBar();
-            //bar.Size = new Size(100, 10);
             if (arg_side == 0)
             {
-                switch (level) 
-                {
-                    case 1: pic.Image = Resource1.our_1; break;
-                    case 2: pic.Image = Resource1.our_2; break;
-                    case 3: pic.Image = Resource1.our_3; break;
-                    case 4: pic.Image = Resource1.our_4; break;
-                    case 5: pic.Image = Resource1.our_5; break;
-                }
                 kind = level;
             }
             else if (arg_side == 1)
             {
-                switch (level)
-                {
-                    case 1: pic.Image = Resource1.enemy_1; break;
-                    case 2: pic.Image = Resource1.enemy_2; break;
-                    case 3: pic.Image = Resource1.enemy_3; break;
-                    case 4: pic.Image = Resource1.enemy_4; break;
-                    case 5: pic.Image = Resource1.enemy_5; break;
-                    case 6: pic.Image = Resource1.enemy_6; break;
-                    case 7: pic.Image = Resource1.enemy_7; break;
-                    case 8: pic.Image = Resource1.enemy_8; break;
-                }
                 kind = level + 5;
             }
             //bar.Parent = p;
-            //pic.Parent = p; 
             init(arg_side,level);
-        }
-
-        public void setParent(int index)
-        {
-            parent = index;
-        }
-
-        public int getParent()
-        {
-            return parent;
         }
 
         public int getKind()
@@ -89,11 +54,6 @@ namespace catWar
             {
                 side = 0;
                 position = 200;
-                pic.Left = 200;
-                pic.Top = 350;
-                //bar.Top = pic.Top - 20;
-                //bar.Left = pic.Left;
-                //Point(start_point + (end_point - start_point) / 100 * position, 300)
                 switch (level)
                 {
                     case 1:
@@ -102,6 +62,8 @@ namespace catWar
                         atk_speed=50;
                         dfn_ab=2;
                         move_ab=2;
+                        atkFrame = 4;
+                        moveFrame = 4;
                         break;
                     case 2:
                         blood=200;
@@ -109,6 +71,8 @@ namespace catWar
                         atk_speed=50;
                         dfn_ab=1;
                         move_ab=3;
+                        atkFrame = 7;
+                        moveFrame = 4;
                         break;
                     case 3:
                         blood=300;
@@ -116,6 +80,8 @@ namespace catWar
                         atk_speed=100;
                         dfn_ab=3;
                         move_ab=2;
+                        atkFrame = 8;
+                        moveFrame = 4;
                         break;
                     case 4:
                         blood=250;
@@ -123,6 +89,8 @@ namespace catWar
                         atk_speed=25;
                         dfn_ab=2;
                         move_ab=5;
+                        atkFrame = 9;
+                        moveFrame = 6;
                         break;
                     case 5:
                         blood=1000;
@@ -130,6 +98,8 @@ namespace catWar
                         atk_speed=75;
                         dfn_ab=5;
                         move_ab=1;
+                        atkFrame = 15;
+                        moveFrame = 4;
                         break;
                 }
             }
@@ -137,11 +107,6 @@ namespace catWar
             {
                 side = 1;
                 position = 850;
-                pic.Left = 850;
-                pic.Top = 350;
-               // bar.Top = pic.Top - 20;
-                //bar.Left = pic.Left;
-                //Point(start_point + (end_point - start_point) / 100 * position, 300);
                 switch (level)
                 {
                     case 1:
@@ -150,6 +115,8 @@ namespace catWar
                         atk_speed=50;
                         dfn_ab=2;
                         move_ab= -2;
+                        atkFrame = 5;
+                        moveFrame = 1;
                         break;
                     case 2:
                         blood=180;
@@ -157,6 +124,8 @@ namespace catWar
                         atk_speed=50;
                         dfn_ab=1;
                         move_ab= -3;
+                        atkFrame = 5;
+                        moveFrame = 1;
                         break;
                     case 3:
                         blood=300;
@@ -164,6 +133,8 @@ namespace catWar
                         atk_speed=100;
                         dfn_ab=3;
                         move_ab= -2;
+                        atkFrame = 5;
+                        moveFrame = 1;
                         break;
                     case 4:
                         blood=250;
@@ -171,6 +142,8 @@ namespace catWar
                         atk_speed=25;
                         dfn_ab=2;
                         move_ab= -5;
+                        atkFrame = 5;
+                        moveFrame = 3;
                         break;
                     case 5:
                         blood=1200;
@@ -178,6 +151,8 @@ namespace catWar
                         atk_speed=75;
                         dfn_ab=5;
                         move_ab= -1;
+                        atkFrame = 5;
+                        moveFrame = 3;
                         break;
                     case 6:
                         blood = 2000;
@@ -185,6 +160,8 @@ namespace catWar
                         atk_speed = 50;
                         dfn_ab = 5;
                         move_ab = -2;
+                        atkFrame = 5;
+                        moveFrame = 3;
                         break;
                     case 7:
                         blood = 750;
@@ -192,6 +169,8 @@ namespace catWar
                         atk_speed = 25;
                         dfn_ab = 2;
                         move_ab = -5;
+                        atkFrame = 5;
+                        moveFrame = 3;
                         break;
                     case 8:
                         blood = 2500;
@@ -199,24 +178,24 @@ namespace catWar
                         atk_speed = 100;
                         dfn_ab = 4;
                         move_ab = -1;
+                        atkFrame = 5;
+                        moveFrame = 3;
                         break;
                 }
             }
             //bar.Maximum = blood;
             //bar.Value = blood;
-            pic.Show();
         }
 
-        /*public void clock()
+        public int getMoveFrame()
         {
-            if (clk >= 2147483646 || clk < 0)
-                clk = 0;
-            clk++;
-            if (atk_mode = true)
-                attack();
-            if (clk % 10 == 0)
-                move();
-        }*/
+            return moveFrame;
+        }
+
+        public int getAtkFrame()
+        {
+            return atkFrame;
+        }
 
         public int get_position()
         {
@@ -228,53 +207,8 @@ namespace catWar
             position = x;
         }
 
-        /*public int get_front(int side)
-        {
-            return (side==0)?our_front:enemy_front;
-        }*/
-
-        /*public void set_front(int side, int value)
-        {
-            if (side == 0)
-                our_front = value;
-            else if (side == 1)
-                enemy_front = value;
-        }*/
-
         public void move()
         {
-
-            //pic.Image = Resource1.tusky_005;//change to move figure
-            //position = x;
-            //label0.BringToFront();
-            //position += move_ab;
-            /*if (side == 0) 
-            {
-                if (position >= enemy_front)
-                {
-                    position = enemy_front - 1;
-                    atk_mode = true;
-                }
-                else if (position >= 100)
-                {
-                    position = 99;
-                    atk_mode = true;
-                }
-            }
-            else if (side == 1)
-            {
-                if (position <= our_front)
-                {
-                    position = our_front+1;
-                    atk_mode = true;
-                }
-                else if (position <=0)
-                {
-                    position = 1;    
-                    atk_mode = true;
-                }            
-            }*/
-            //label0.Location = new Point(start_point + (end_point - start_point) / 100 * position, 300);
         }
 
         public void hold()
@@ -300,8 +234,8 @@ namespace catWar
         {
             if (blood <= 0)
             {
-                pic.Hide();
-                pic.Enabled = false;
+               // pic.Hide();
+                //pic.Enabled = false;
                 //bar.Enabled = false;
                 //bar.Hide();
                 return true;

@@ -247,6 +247,11 @@
     <None Include="Resources\ch4move4.png" />
     <None Include="Resources\ch4move5.png" />
     <None Include="Resources\ch4move6.png" />
+    <None Include="Resources\ch5hold.png" />
+    <None Include="Resources\ch5move1.png" />
+    <None Include="Resources\ch5move2.png" />
+    <None Include="Resources\ch5move3.png" />
+    <None Include="Resources\ch5move4.png" />
     <None Include="Resources\ch5attack1.png" />
     <None Include="Resources\ch5attack2.png" />
     <None Include="Resources\ch5attack3.png" />
@@ -260,11 +265,8 @@
     <None Include="Resources\ch5attack11.png" />
     <None Include="Resources\ch5attack12.png" />
     <None Include="Resources\ch5attack13.png" />
-    <None Include="Resources\ch5hold.png" />
-    <None Include="Resources\ch5move1.png" />
-    <None Include="Resources\ch5move2.png" />
-    <None Include="Resources\ch5move3.png" />
-    <None Include="Resources\ch5move4.png" />
+    <None Include="Resources\ch5attack14.png" />
+    <None Include="Resources\ch5attack15.png" />
     <Content Include="Resources\enemy_1.gif" />
     <Content Include="Resources\enemy_2.gif" />
     <Content Include="Resources\enemy_3.gif" />
